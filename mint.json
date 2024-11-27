@@ -27,6 +27,18 @@
   },
   "tabs": [
     {
+      "name": "Data Warehouse",
+      "url": "datawarehouse"
+    },
+    {
+      "name": "Data Marketplace",
+      "url": "marketplace"
+    },
+    {
+      "name": "Edge Node",
+      "url": "node"
+    },
+    {
       "name": "Chakra Drive (Hackathon)",
       "url": "drive"
     }
@@ -36,6 +48,11 @@
       "name": "Community",
       "icon": "discord",
       "url": "https://discord.gg/chakra-ai"
+    },
+    {
+      "name": "X",
+      "icon": "twitter",
+      "url": "https://x.com/chakra_ai"
     },
     {
       "name": "Blog",
@@ -53,14 +70,21 @@
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Data Warehouse",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images", 
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "datawarehouse/introduction"
+      ]
+    },
+    {
+      "group": "Data Marketplace",
+      "pages": [
+        "marketplace/introduction"
+      ]
+    },
+    {
+      "group": "Edge Node",
+      "pages": [
+        "node/introduction"
       ]
     },
     {
