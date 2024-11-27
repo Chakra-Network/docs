@@ -12,7 +12,7 @@ Imagine you're a kid with a lemonade stand, and you created a _special recipe_ t
 
 <img src='/images/lemonade-sad.webp' alt='Happy lemonade stand illustration' />
 <p className='text-sm text-center italic'>
-  Thank you Midjourney for this fabulous illustration (with typos).
+  H/T Midjourney for this fabulous illustration (with typos).
 </p>
 This is exactly what's happening with data today:
 
@@ -38,12 +38,12 @@ It's like creating a new lemonade marketplace where:
   alt='Happy lemonade stand illustration'
 />
 <p className='text-sm text-center italic'>
-  Wow - beautiful world we live in if Chakra can meet its mission.
+  Wow - what a beautiful world we can live in if Chakra meets its mission.
 </p>
 
 # The Data Economy Today
 
-The current data marketplace ecosystem faces several fundamental challenges that affect both enterprises and individual users:
+The current data marketplace ecosystem faces several fundamental challenges that affect both individual users and enterprises:
 
 ## User Data Rights
 
@@ -61,7 +61,6 @@ Traditional data platforms like Snowflake and Databricks present several obstacl
 - Complex procurement processes for data acquisition, specifically for the datasets that actually matter like Twitter / Reddit.
 - High operational costs for data storage and transformation - Snowflake / Databricks charge 80% product gross margins, spend for most start-ups / SMBs is way too high.
 - Limited monetization opportunities for proprietary datasets. Too hard to share data into the hands of the right, paying customer.
-- Complex integration processes.
 
 # Market Opportunity
 
@@ -69,7 +68,17 @@ The data marketplace landscape is ripe for innovation due to several factors:
 
 ## Technological Evolution
 
-Recent developments in decentralized infrastructure have enabled:
+We are finally at the right time to build a data warehouse using blockchain primitives. Notably, you need two things to build an effective data warehouse - storage and compute.
+The modern hyperscaler has had both of these primitives since the early 2000s - only over the last 12-18 months have we bootstrapped these primitives in crypto.
+
+The key primitives that enable Chakra's data warehouse are:
+
+| Primitive             | Provider                                                                                                  | Benefits                                                                                                                                                             |
+| --------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Decentralized Storage | [Impossible Cloud](https://www.impossiblecloud.com/) & [Akave (built on Filecoin)](https://www.akave.ai/) | - Up to 80% cost reduction vs. AWS S3<br/>- No egress costs<br/>- Enterprise-grade durability (11 9's)<br/>- Geographic data sovereignty<br/>- Pay-as-you-go pricing |
+| Decentralized Compute | [Akash Network](https://console.akash.network/), AWS (back-up)                                            | - Up to 85% cost savings vs. AWS EC2<br/>- Global compute marketplace<br/>- Automatic failover<br/>- Native container orchestration                                  |
+
+These foundational technologies enable:
 
 - High-performance storage solutions (Impossible Cloud & Akave)
 - Cost-effective compute capabilities (Akash, which the Chakra Data Warehouse is built upon)
@@ -86,3 +95,7 @@ The market demands new approaches to:
 - Enterprise data monetization
 
 Chakra addresses these challenges through our product suite that properly aligns incentives between enterprises, users, and content creators.
+
+## System Architecture (Alpha)
+
+<img src='/images/system.svg' alt='System Architecture' />
