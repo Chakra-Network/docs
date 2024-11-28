@@ -1,0 +1,65 @@
+---
+title: 'Encryption'
+description: 'How do we use Lit Protocol to keep your files safe.'
+icon: 'lock'
+---
+
+<img src='/images/encryption.png' alt='Lit Protocol Encryption Flow' />
+
+# System Overview
+
+The Chakra Drive encryption system employs a sophisticated architecture that prioritizes security through component isolation. By separating encrypted content, encryption keys, and authentication across different components, we ensure that a breach in any single component cannot compromise the entire system.
+
+# Core Components
+
+## Frontend Service
+
+The frontend serves as the central orchestrator of the encryption system. It manages all user interactions and coordinates the flow between different components. This service is responsible for initiating file requests, managing the authentication flow, and handling the final decryption process. The frontend maintains secure communication channels with both Lit Nodes and Irys to ensure data integrity throughout the process.
+
+## Lit Node Network
+
+The Lit Node network forms the backbone of our key management system. These nodes are responsible for storing and managing encryption keys in a secure, distributed manner. When a user requests access to a file, the Lit Nodes verify their credentials through session signatures and SIWS (Sign-In With Solana) messages before releasing the decryption keys. This distributed approach ensures that no single point of failure can compromise the key management system.
+
+## Irys Storage
+
+Irys handles the secure storage and retrieval of encrypted files. This separation ensures that even if the storage layer is compromised, the encrypted data remains secure without access to the corresponding keys managed by Lit Nodes.
+
+## SIWS Authentication
+
+The Sign-In With Solana (SIWS) system provides blockchain-based authentication for the entire process. Messages are stored locally and must be periodically renewed to maintain security.
+
+# Request and Decryption Flow
+
+The encryption system follows a carefully orchestrated flow to ensure security at every step:
+
+1. The process begins when the frontend initiates a download request to Irys for an encrypted file.
+
+2. Upon receiving the file from Irys, the frontend requests session signatures from the `/decrypt/session_sigs` endpoint.
+
+3. The system validates these signatures and returns them to the frontend.
+
+4. The frontend checks its local storage for a valid SIWS message. If the message has expired, the user must sign a new one.
+
+5. Once all components are verified, the frontend packages the encrypted encryption key, session signatures, and SIWS message, sending them to the Lit Nodes.
+
+6. The Lit Nodes verify the package and, if valid, return the decryption key.
+
+7. Finally, the frontend uses this key to decrypt the file for user access.
+
+# Security Architecture
+
+Security is paramount in the Chakra Drive system. We implement multiple layers of protection:
+
+The encryption key management system ensures that keys are always stored in an encrypted format and are never transmitted in plain text. The format for encrypted keys follows a specific structure:
+
+```json
+{
+  "encryptedEncryptionKeyLength": number,
+  "encryptedEncryptionKey": {
+    "cipherText": string,
+    "dataToEncryptHash": string
+  }
+}
+```
+
+We maintain security through component isolation, encrypted transmissions, and secure key exchange protocols. Each component operates independently while maintaining secure communication channels with other parts of the system.

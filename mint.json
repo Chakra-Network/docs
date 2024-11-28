@@ -90,7 +90,8 @@
     {
       "group": "Chakra Drive",
       "pages": [
-        "drive/introduction"
+        "drive/introduction",
+        "drive/encryption"
       ]
     }
   ],
