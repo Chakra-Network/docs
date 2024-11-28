@@ -15,6 +15,9 @@
       "to": "#189552"  
     }
   },
+  "background": {
+    "style": "gradient"
+  },
   "topbarLinks": [
     {
       "name": "Support",
