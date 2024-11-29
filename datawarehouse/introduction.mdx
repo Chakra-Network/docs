@@ -1,33 +1,97 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'wtf even is a data warehouse?'
+icon: 'database'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  Chakra is currently in Testnet! Join our
+  [Discord](https://discord.gg/chakra-ai) or follow us on
+  [X](https://x.com/chakra_ai) to stay up to date with the latest developments.
 </Note>
 
-## Welcome
+A data warehouse is fundamentally a **specialized database** designed to analyze and process large amounts of tabular data. But modern data warehouses, pioneered by companies like **Snowflake** and **Databricks**, have evolved into something much more powerful.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+# The Basics
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+Think of a data warehouse as your organization's **analytical brain**. Unlike traditional databases that handle day-to-day transactions, data warehouses are built specifically for analyzing and transforming large amounts of data. They serve as a **central repository** where companies can store, process, and analyze their data at scale.
 
-## Authentication
+Modern data warehouses excel at:
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+- Analyzing **massive datasets**
+- Running **complex queries**
+- Transforming data at **scale**
+- Sharing insights across teams
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+# The Modern Data Warehouse Revolution
+
+The data warehouse industry experienced a fundamental shift in **2015** when Snowflake introduced a revolutionary architecture that **separated storage from compute**. This separation meant organizations could now scale their storage and processing power independently, leading to more flexible and efficient data operations.
+
+<img src='/images/modern-dwh.png' alt='Lit Protocol Encryption Flow' />
+
+This new architecture enables organizations to:
+
+1. Store **massive amounts of data** efficiently without paying for unused compute
+2. Scale processing power up or down based on **actual needs**
+3. Allow **multiple teams** to work on the same data without interference
+4. Process queries in **parallel** for better performance
+
+# Core Functions
+
+### Data Transformation
+
+Modern data warehouses serve as **powerful transformation engines**. They take raw data from various sources and convert it into useful formats for analysis. This isn't just about storage – it's about making data **actionable**.
+
+For example, a marketing team might join customer behavior data with transaction history to identify high-value customers. The data warehouse handles these complex transformations using SQL, making it accessible to business analysts and data scientists alike.
+
+### Data Marketplace
+
+One of the most significant innovations in modern data warehouses is the concept of a **data marketplace**. Snowflake and Databricks have transformed their platforms into exchanges where organizations can share, discover, and monetize data assets. These marketplaces have become increasingly popular, with Snowflake reporting that **32%** of their customers are now using their data sharing features.
+
+# The Problems with Current Solutions
+
+Despite their capabilities, today's data warehouses face **significant challenges** that affect both enterprises and users. The current model, while powerful, comes with substantial drawbacks.
+
+### The Cost Problem
+
+The economics of current data warehouse solutions are increasingly problematic. Snowflake maintains a striking **77% gross margin** on their product, which translates to significant costs for customers. In fact, users typically pay premiums of up to **87%** compared to raw infrastructure costs.
+
+The cost issue has become so significant that an entire ecosystem of startups (like [Keebo.ai](Keebo.ai) and [Bluesky](https://www.getbluesky.io/)) exists solely to help companies optimize their warehouse spending.
+
+Companies also face "double-spend" on storage, paying both for their original data location and warehouse storage. In addition to spending on the storage, they also pay to "move" their data resulting in significant ["egress" spend](https://x.com/0xnirmal/status/1845990586597138918).
+
+### Vendor Lock-in and Control
+
+When organizations commit to a data warehouse provider, they often find themselves locked into a rigid ecosystem. This manifests in several ways:
+
+- Annual commitments required for better pricing
+- Credits that expire if unused
+- Loss of discounts when downsizing
+- Complex and costly migration processes
+
+### The Data Ownership Challenge
+
+Perhaps most importantly, organizations lose effective control over their data once it's uploaded to traditional data warehouses. They become dependent on the provider's infrastructure for data access, face high costs for data egress, and have limited flexibility in how they can use and share their data.
+
+# What Does Chakra Do Differently?
+
+The challenges with traditional data warehouses point to the need for a new approach.
+
+<CardGroup cols={2}>
+  <Card title='ChakraDB' icon='dharmachakra' href='/datawarehouse/chakra-db'>
+    How's it different than the existing solutions?
+  </Card>
+  <Card title='Canvas' icon='palette' href='/datawarehouse/canvas'>
+    Start extracting, loading, and transforming your data in minutes.
+  </Card>
+  <Card title='Worksheets' icon='table' href='/datawarehouse/worksheet'>
+    Query your data.
+  </Card>
+  <Card title='Existing Data' icon='server' href='/datawarehouse/existing-data'>
+    Already have data? Load it into Chakra in minutes.
+  </Card>
+</CardGroup>
+
+### End
+
+Let's build a better world computer for data that actually works for consumers, enterprises, and AI use-cases.

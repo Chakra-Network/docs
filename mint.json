@@ -26,7 +26,7 @@
   ],
   "topbarCtaButton": {
     "name": "Home",
-    "url": "https://chakra.network"
+    "url": "https://chakra.dev"
   },
   "tabs": [
     {
@@ -42,7 +42,7 @@
       "url": "node"
     },
     {
-      "name": "Chakra Drive (Hackathon)",
+      "name": "Chakra Drive (Hackathon) - Live!",
       "url": "drive"
     }
   ],
@@ -60,7 +60,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://www.chakra.network/writing"
+      "url": "https://www.chakra.dev/writing"
     }
   ],
   "navigation": [
@@ -75,7 +75,11 @@
     {
       "group": "Data Warehouse",
       "pages": [
-        "datawarehouse/introduction"
+        "datawarehouse/introduction",
+        "datawarehouse/chakra-db",
+        "datawarehouse/canvas",
+        "datawarehouse/worksheet",
+        "datawarehouse/existing-data"
       ]
     },
     {
