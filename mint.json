@@ -77,7 +77,6 @@
       "pages": [
         "datawarehouse/introduction",
         "datawarehouse/chakra-db",
-        "datawarehouse/canvas",
         "datawarehouse/worksheet",
         "datawarehouse/existing-data",
         "datawarehouse/workspace"
