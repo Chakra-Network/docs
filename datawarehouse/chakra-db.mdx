@@ -6,9 +6,11 @@ icon: 'dharmachakra'
 
 # A New Approach to Data Warehousing
 
-ChakraDB is pioneering a fundamentally different approach to data warehousing by combining two powerful innovations: the performance of DuckDB with decentralized infrastructure. This combination delivers high performance, low costs, and true data ownership.
+ChakraDB is pioneering a fundamentally different approach to data warehousing by combining two powerful innovations: the performance of DuckDB with bare-metal infrastructure.
 
 <img src='/images/chakra-duck.png' alt='Lit Protocol Encryption Flow' />
+
+This combination delivers high performance, low costs, and true data ownership.
 
 # Built on DuckDB: The Future of Data Processing
 
@@ -22,7 +24,7 @@ DuckDB represents a fundamental shift in how we process data. While traditional 
 
 DuckDB performs computations directly where your data lives, eliminating the "cold-start" problem that plagues distributed systems like Spark. This means no data movement costs and significantly lower latency for most operations.
 
-### Vectorized Processing Excellence
+### Vectorized Processing
 
 Written in C++, DuckDB's vectorized processing engine can handle datasets much larger than available memory. Recent [benchmarks have shown](https://medium.com/datamindedbe/use-dbt-and-duckdb-instead-of-spark-in-data-pipelines-9063a31ea2b5) it outperforming Databricks on many operations by avoiding the overhead of data distribution.
 
@@ -44,44 +46,31 @@ Unlike many modern data solutions that require learning new query languages or A
 - Easy integration with existing systems
 - Complex transformations without new languages
 
-# The Hybrid Execution Model
+# Choose your own infrastructure
 
-Unlike traditional data warehouses, Chakra employs a unique hybrid execution approach:
+We've built using a network of storage and compute providers that allow you to flexibly choose the most cost-efficient and performant option for your needs.
 
-1. **Local-First**: Queries are first evaluated for local execution on your machine
-2. **Smart Routing**: Large operations or data-intensive queries are automatically routed to the network
-3. **Cost Optimization**: The system chooses the most efficient execution path based on:
-   - Data size
-   - Query complexity
-   - Physical data location
-   - Available local resources
+<div className='relative w-full aspect-video'>
+  <iframe
+    src='https://player.vimeo.com/video/1051397117?badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+    frameBorder='0'
+    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+    title='blog-video-1'
+    data-ready='true'
+    className='absolute top-0 left-0 w-full h-full'
+  ></iframe>
+</div>
 
-# Decentralized Infrastructure
+# Data Ownership
 
-We've built a network of decentralized compute providers that offers several advantages:
+With Chakra, you have full custodial keys to your storage environments without any of the maintenance complexity.
 
-- **Cost Savings**: Up to 70% reduction in infrastructure costs compared to traditional warehouses
-- **No Vendor Lock-in**: Pay per query with either crypto or traditional payment methods
-- **Flexible Scaling**: Access compute resources as needed without long-term commitments
-- **Geographic Optimization**: Process data closer to where it's stored
+We provision object storage for you, but if you ever want access to pull all of your data, you have the keys to do so.
 
-# True Data Ownership
-
-With ChakraDB, you maintain complete control of your data:
-
-- **Choose Your Storage**: Use any storage solution including IPFS, Arweave, or traditional options
-- **Flexible Access**: Control how your data is accessed and by whom
-- **Direct Monetization**: Set your own terms for data sharing and marketplace participation
-- **No Double Storage**: Store your data once and access it anywhere
-
-# Fair Economics
-
-We're building a more equitable data ecosystem:
-
-- **Transparent Pricing**: Pay only for what you use
-- **No Credit Systems**: No expiring credits or complex pricing tiers
-- **Revenue Sharing**: Data providers earn royalties when their data is used
-- **Open Marketplace**: Direct connection between data providers and consumers
+<img
+  src='https://cdn.prod.website-files.com/674004db86b69c586d160bea/679a3393291b853c5ce95e10_6799ac3357521b7f013d3242_6799abb045c81bc20f8f54f9_Jan%25252027%2525202025.png'
+  alt='Data ownership illustration'
+/>
 
 # Getting Started
 

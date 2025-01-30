@@ -1,12 +1,68 @@
 ---
 title: 'Worksheet'
-description: 'What can I do with a Worksheet?'
+description: 'Load, Query, and Tranform Data'
 icon: 'table'
 ---
 
-<img src='/images/cooking.webp' alt='Happy lemonade stand illustration' />
-<p className='text-sm text-center italic'>
-  Excuse the lack of detail here - we're cooking on this page.
-</p>
+<div className='relative w-full aspect-video'>
+  <iframe
+    src='https://player.vimeo.com/video/1051397093?badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+    frameBorder='0'
+    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+    title='blog-video-1'
+    data-ready='true'
+    className='absolute top-0 left-0 w-full h-full'
+  ></iframe>
+</div>
 
-Very cool demo video and detailed instructions coming soon.
+Worksheets are your home for interacting with your local, subscribed, and published databases.
+
+## Loading Data
+
+If you've got a pandas DataFrame, loading data into your ChakraDB is effortless. Check out the [Python SDK](https://github.com/Chakra-Network/python-sdk) for full documentation on how do so.
+
+Your database session key can be found in the [settings page](https://console.chakra.dev/settings)
+
+```python ingest.py
+from chakra_py import Chakra
+import pandas as pd
+
+# Initialize client
+client = Chakra("YOUR_DB_SESSION_KEY")
+
+# Push data to a new or existing table
+data = pd.DataFrame({
+    "id": [1, 2, 3],
+    "name": ["Alice", "Bob", "Charlie"],
+    "score": [85.5, 92.0, 78.5]
+})
+client.push("students", data, create_if_missing=True)
+```
+
+## Query / Transform Data
+
+Once your data is loaded, you'll be able to transform it using [DuckDB SQL](https://duckdb.org/docs/sql/introduction.html) directly in a worksheet.
+
+Alternatively, you can run your SQL directly in a Python shell to retrieve your results programmatically.
+
+```python transform.py
+# Simple query
+df = client.execute("SELECT * FROM table_name")
+
+# Complex query with aggregations
+df = client.execute(
+  """
+    SELECT
+        category,
+        COUNT(*) as count,
+        AVG(value) as avg_value
+    FROM measurements
+    GROUP BY category
+    HAVING count > 10
+    ORDER BY avg_value DESC
+""")
+
+# Work with results using pandas
+print(df.describe())
+print(df.groupby('category').agg({'value': ['mean', 'std']}))
+```

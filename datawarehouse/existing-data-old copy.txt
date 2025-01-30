@@ -1,0 +1,125 @@
+---
+title: 'Integrations / Existing Data'
+description: "I've already got data in a database, how do I pipe it in?"
+icon: 'server'
+---
+
+Chakra is designed to work seamlessly with your existing data infrastructure. Whether you're looking to migrate data from traditional warehouses or sync with operational databases, we've got you covered.
+
+# ETL/ELT Made Simple
+
+### From Your Database
+
+Connect directly from popular databases:
+
+- PostgreSQL
+- MySQL
+- MongoDB
+- Microsoft SQL Server
+- Oracle
+
+### From Your Data Warehouse
+
+Easily migrate or sync from:
+
+- Snowflake
+- Databricks
+- BigQuery
+- Redshift
+- Azure Synapse
+
+# Reverse ETL Capabilities
+
+Chakra can replace expensive tools like Fivetran or Hightouch for your reverse ETL needs. Move your transformed data directly to operational systems in minutes.
+
+# Connection Guide
+
+### Snowflake
+
+#### Finding Your Account Identifier
+
+1. Look at your Snowflake URL when logged in
+2. The format is: `https://<account_identifier>.snowflakecomputing.com`
+3. Only copy the `<account_identifier>` part before `.snowflakecomputing.com`
+
+<Note>
+  For organizations using multiple regions, your account identifier might
+  include the region, like `xy12345.us-east-1`
+</Note>
+
+#### Database Name
+
+1. In Snowflake, click on "Databases" in the left navigation
+2. Copy the name of the database you want to connect
+3. Note: this is case-sensitive
+
+#### User & Password
+
+We recommend creating a dedicated user for Chakra:
+
+1. In Snowflake, go to Admin → Users & Roles
+2. Click "+ User" to create a new user
+3. Give them appropriate read permissions on your database
+
+```sql
+-- Create a dedicated user in Snowflake
+CREATE USER CHAKRA_USER
+    PASSWORD = 'your_secure_password'
+    DEFAULT_ROLE = PUBLIC;
+
+-- Grant necessary permissions
+GRANT USAGE ON DATABASE your_database TO CHAKRA_USER;
+GRANT USAGE ON SCHEMA your_database.your_schema TO CHAKRA_USER;
+GRANT SELECT ON ALL TABLES IN SCHEMA your_database.your_schema TO CHAKRA_USER;
+```
+
+### Databricks
+
+Coming soon.
+
+### Postgres
+
+##### Basic Connection Details
+
+1. **Integration Name**: A name to identify this connection in Chakra
+2. **Host**: Your Postgres instance hostname/IP (e.g., `database.example.com` or `192.168.1.100`)
+3. **Port**: The port your Postgres instance runs on (default is `5432`)
+4. **Database**: The name of your database
+5. **Schema**: The schema to use (defaults to `public` if not specified)
+
+##### Authentication
+
+You can connect using either:
+
+###### Username/Password
+
+- **Username**: Database user with appropriate permissions
+- **Password**: User's password
+
+###### SSH Tunnel (Optional)
+
+For databases behind a firewall:
+
+- **SSH Tunnel URL**: Format `ssh://user:password@host:22`
+- **SSH Private Key**: Your SSH private key
+- **SSH Key Passphrase**: If your private key is password-protected
+
+#### Setting Up a Database User
+
+```sql
+-- Create a new user
+CREATE USER chakra_user WITH PASSWORD 'your_secure_password';
+
+-- Connect to your specific database
+\c your_database
+
+-- Grant schema usage
+GRANT USAGE ON SCHEMA public TO chakra_user;
+
+-- Grant table permissions
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO chakra_user;
+
+-- Grant permissions on future tables
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+GRANT SELECT ON TABLES TO chakra_user;
+```

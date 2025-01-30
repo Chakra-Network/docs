@@ -6,17 +6,21 @@
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
+  "modeToggle": {
+  "default": "dark",
+  "isHidden": true
+},
   "colors": {
-    "primary": "#189552",
-    "light": "#189552",
-    "dark": "#189552",
+    "primary": "#a2e5d4",
+    "light": "#a2e5d4",
+    "dark": "#a2e5d4",
     "anchors": {
-      "from": "#189552",  
-      "to": "#189552"  
+      "from": "#a2e5d4",  
+      "to": "#a2e5d4"  
     }
   },
   "background": {
-    "style": "gradient"
+    "style": "grid"
   },
   "topbarLinks": [
     {
@@ -40,13 +44,15 @@
     {
       "name": "Edge Node",
       "url": "node"
-    },
-    {
-      "name": "Chakra Drive (Hackathon) - Live!",
-      "url": "drive"
     }
   ],
   "anchors": [
+    {
+      "name": "App",
+      "icon": "house",
+      "iconType": "solid",
+      "url": "https://console.chakra.dev/"
+    },
     {
       "name": "Community",
       "icon": "discord",
@@ -60,16 +66,14 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://www.chakra.dev/writing"
+      "url": "https://www.chakra.dev/blogs"
     }
   ],
   "navigation": [
     {
       "group": "Introduction",
       "pages": [
-        "overview",
-        "background",
-        "benefits"
+        "overview"
       ]
     },
     {
@@ -79,7 +83,9 @@
         "datawarehouse/chakra-db",
         "datawarehouse/worksheet",
         "datawarehouse/existing-data",
-        "datawarehouse/workspace"
+        "datawarehouse/workspace",
+        "datawarehouse/scout-ai",
+        "datawarehouse/api-docs"
       ]
     },
     {
@@ -92,13 +98,6 @@
       "group": "Edge Node",
       "pages": [
         "node/introduction"
-      ]
-    },
-    {
-      "group": "Chakra Drive",
-      "pages": [
-        "drive/introduction",
-        "drive/encryption"
       ]
     }
   ],
