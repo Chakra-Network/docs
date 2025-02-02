@@ -16,7 +16,7 @@
     "dark": "#a2e5d4",
     "anchors": {
       "from": "#a2e5d4",  
-      "to": "#a2e5d4"  
+      "to": "#a2e5d4"
     }
   },
   "background": {
@@ -44,6 +44,11 @@
     {
       "name": "Edge Node",
       "url": "node"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference",
+      "openapi": "/api-reference/openapi.yaml"
     }
   ],
   "anchors": [
@@ -82,10 +87,8 @@
         "datawarehouse/introduction",
         "datawarehouse/chakra-db",
         "datawarehouse/worksheet",
-        "datawarehouse/existing-data",
         "datawarehouse/workspace",
-        "datawarehouse/scout-ai",
-        "datawarehouse/api-docs"
+        "datawarehouse/scout-ai"
       ]
     },
     {

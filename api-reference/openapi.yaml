@@ -1,0 +1,243 @@
+openapi: 3.0.0
+info:
+  title: DuckDB Data Warehouse API
+  description: A robust data warehouse solution built with DuckDB and S3 storage.
+  version: 1.0.0
+servers:
+  - url: https://api.chakra.dev
+    description: Production server
+  - url: http://localhost:8080
+    description: Local development server
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  /api/v1/servers:
+    post:
+      summary: Generate Token
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accessKey:
+                  type: string
+                  description: The first third of the "database session key". Colon delimited.
+                secretKey:
+                  type: string
+                  description: The middle third of the "database session key". Colon delimited.
+                username:
+                  type: string
+                  description: The last third of the "database session key". Colon delimited.
+      responses:
+        '201':
+          description: Token created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  username:
+                    type: string
+                  message:
+                    type: string
+                  bucketName:
+                    type: string
+                  bucketRegion:
+                    type: string
+                  tags:
+                    type: object
+                  groupMembership:
+                    type: string
+  /api/v1/servers/ping:
+    get:
+      summary: Server Health Check
+      responses:
+        '200':
+          description: Server health status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  username:
+                    type: string
+                  bucketName:
+                    type: string
+                  region:
+                    type: string
+  /api/v1/servers/shutdown:
+    post:
+      summary: Shutdown Server
+      responses:
+        '200':
+          description: Server shutdown
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /api/v1/databases:
+    get:
+      summary: List Databases
+      responses:
+        '200':
+          description: List of databases
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  databases:
+                    type: array
+                    items:
+                      type: string
+                  count:
+                    type: integer
+    post:
+      summary: Create Database
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Database created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  name:
+                    type: string
+  /api/v1/databases/{name}:
+    get:
+      summary: Get Database Info
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Database information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  lastAccessed:
+                    type: string
+                    format: date-time
+                  lastSynced:
+                    type: string
+                    format: date-time
+                  sizeBytes:
+                    type: integer
+                  isAttached:
+                    type: boolean
+                  local:
+                    type: boolean
+                  schemas:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        tables:
+                          type: object
+                          additionalProperties:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                type:
+                                  type: string
+                                nullable:
+                                  type: boolean
+    delete:
+      summary: Delete Database
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Database deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  name:
+                    type: string
+  /api/v1/query:
+    post:
+      summary: Execute Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sql:
+                  type: string
+                parameters:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Query result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  columns:
+                    type: array
+                    items:
+                      type: string
+                  rows:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: string
