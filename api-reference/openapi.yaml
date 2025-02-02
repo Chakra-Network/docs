@@ -30,13 +30,13 @@ paths:
               properties:
                 accessKey:
                   type: string
-                  description: The first third of the "database session key". Colon delimited.
+                  description: Found in [/settings](https://console.chakra.dev/settings). 
                 secretKey:
                   type: string
-                  description: The middle third of the "database session key". Colon delimited.
+                  description: Found in [/settings](https://console.chakra.dev/settings).
                 username:
                   type: string
-                  description: The last third of the "database session key". Colon delimited.
+                  description: Found in [/settings](https://console.chakra.dev/settings). The last third of the "database session key" - colon (`:`) delimited. We will be exposing this in the UI soon.
       responses:
         '201':
           description: Token created
@@ -59,6 +59,42 @@ paths:
                     type: object
                   groupMembership:
                     type: string
+  /api/v1/query:
+    post:
+      summary: Execute Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sql:
+                  type: string
+                  description: The SQL query to execute
+                parameters:
+                  type: array
+                  description: The parameters to pass to the query. If used in conjunction with the SQL query, the parameters will be substituted into the query using the [auto-incrementing `?` placeholder](https://duckdb.org/docs/sql/query_syntax/prepared_statements.html#auto-incremented-parameters-).
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Query result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  columns:
+                    type: array
+                    items:
+                      type: string
+                  rows:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: string
   /api/v1/servers/ping:
     get:
       summary: Server Health Check
@@ -207,37 +243,3 @@ paths:
                     type: string
                   name:
                     type: string
-  /api/v1/query:
-    post:
-      summary: Execute Query
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                sql:
-                  type: string
-                parameters:
-                  type: array
-                  items:
-                    type: string
-      responses:
-        '200':
-          description: Query result
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  columns:
-                    type: array
-                    items:
-                      type: string
-                  rows:
-                    type: array
-                    items:
-                      type: array
-                      items:
-                        type: string
