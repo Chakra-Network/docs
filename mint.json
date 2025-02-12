@@ -42,7 +42,7 @@
       "url": "marketplace"
     },
     {
-      "name": "Edge Node",
+      "name": "Data Scout",
       "url": "node"
     },
     {
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "group": "Edge Node",
+      "group": "Data Scout",
       "pages": [
         "node/introduction"
       ]
