@@ -1,27 +1,24 @@
 ---
-title: 'Worksheet / Python SDK'
+title: 'Python SDK'
 description: 'Load, Query, and Tranform Data'
 icon: 'table'
 ---
 
-<div className='relative w-full aspect-video'>
-  <iframe
-    src='https://player.vimeo.com/video/1051397093?badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
-    frameBorder='0'
-    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
-    title='blog-video-1'
-    data-ready='true'
-    className='absolute top-0 left-0 w-full h-full'
-  ></iframe>
-</div>
+The Python SDK is the easiest way to programmatically interact with your local, subscribed, and published databases.
 
-Worksheets are your home for interacting with your local, subscribed, and published databases.
+Latest documentation can be found directly on [GitHub](https://github.com/Chakra-Network/python-sdk). Non-exhaustive samples below.
+
+## Installation
+
+```bash
+pip install chakra-py
+```
 
 ## Loading Data
 
-If you've got a pandas DataFrame, loading data into your Chakra Data Warehouse is effortless. Check out the [Python SDK](https://github.com/Chakra-Network/python-sdk) for full documentation on how do so.
+The Python SDK is built around [Pandas](https://pandas.pydata.org/) dataframes as the core primitive. All objects are passed and retrieved as Pandas dataframes.
 
-Your database session key can be found in the [settings page](https://console.chakra.dev/settings)
+Your database session key can be found in the [settings page](https://console.chakra.dev/settings).
 
 ```python ingest.py
 from chakra_py import Chakra
@@ -40,10 +37,6 @@ client.push("students", data, create_if_missing=True)
 ```
 
 ## Query / Transform Data
-
-Once your data is loaded, you'll be able to transform it using [DuckDB SQL](https://duckdb.org/docs/sql/introduction.html) directly in a worksheet.
-
-Alternatively, you can run your SQL directly in a Python shell to retrieve your results programmatically.
 
 ```python transform.py
 # Simple query

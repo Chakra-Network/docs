@@ -1,0 +1,37 @@
+---
+title: 'Jupyter Notebooks'
+description: 'Visualize your data'
+icon: 'planet-ringed'
+---
+
+## Using Jupyter with Chakra
+
+You can connect Jupyter notebooks to your Chakra database using the standard Python client. Here's a quick example:
+
+```python
+from chakra_py import Chakra
+import pandas as pd
+
+# Initialize client
+client = Chakra("YOUR_DB_SESSION_KEY")
+
+# Query your data
+df = client.execute("SELECT * FROM table_name")
+
+# Use pandas, matplotlib, or other visualization libraries
+df.plot()
+```
+
+## Consider Using Marimo
+
+While Jupyter notebooks are widely used, we recommend trying [Marimo](https://marimo.io) - a modern Python notebook that addresses many of Jupyter's limitations. Marimo offers:
+
+- Real-time reactivity
+- Better version control compatibility
+- Cleaner code organization
+- Enhanced reproducibility
+- Native UI components
+
+Check out this [example Marimo notebook](https://marimo.io/p/@chakra/notebook-6l2uh5) that demonstrates how to analyze and visualize Chakra data effectively.
+
+Marimo's reactive execution model ensures your analysis stays up-to-date as you modify your code, making it ideal for exploratory data analysis with Chakra.

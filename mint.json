@@ -19,9 +19,6 @@
       "to": "#a2e5d4"
     }
   },
-  "background": {
-    "style": "grid"
-  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -33,18 +30,7 @@
     "url": "https://chakra.dev"
   },
   "tabs": [
-    {
-      "name": "Data Warehouse",
-      "url": "datawarehouse"
-    },
-    {
-      "name": "Data Marketplace",
-      "url": "marketplace"
-    },
-    {
-      "name": "Data Scout",
-      "url": "node"
-    },
+ 
     {
       "name": "API Reference",
       "url": "api-reference",
@@ -59,12 +45,12 @@
       "url": "https://console.chakra.dev/"
     },
     {
-      "name": "Community",
+      "name": "Discord",
       "icon": "discord",
       "url": "https://discord.gg/chakra-ai"
     },
     {
-      "name": "X",
+      "name": "Twitter",
       "icon": "twitter",
       "url": "https://x.com/chakra_ai"
     },
@@ -76,7 +62,7 @@
   ],
   "navigation": [
     {
-      "group": "Introduction",
+      "group": "Overview",
       "pages": [
         "overview"
       ]
@@ -84,9 +70,10 @@
     {
       "group": "Data Warehouse",
       "pages": [
-        "datawarehouse/introduction",
-        "datawarehouse/chakra-db",
+        "datawarehouse/quick-start",
+        "datawarehouse/architecture",
         "datawarehouse/worksheet",
+        "datawarehouse/notebook",
         "datawarehouse/workspace",
         "datawarehouse/scout-ai"
       ]

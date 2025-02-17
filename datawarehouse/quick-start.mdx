@@ -1,0 +1,53 @@
+---
+title: 'Quickstart'
+description: 'Getting started on the Data Warehouse'
+icon: 'play'
+---
+
+### Provision an account, upload data, and start querying.
+
+<Steps>
+  <Step title='Sign-Up'>
+    Navigate to the [app](https://console.chakra.dev/) and create your accout
+    using email or SSO.
+    <img src='/images/quickstart-1.png' />
+  </Step>
+  <Step title='Select your storage provider + region and provision your data warehouse'>
+    <img src='/images/quickstart-2.png' />
+  </Step>
+  <Step title='Navigate to "Worksheets" in the sidebar' />
+  <Step title='Execute SQL'>
+    Your data warehouse comes provisioned with a "Unicorns" dataset that you can
+    start writing DuckDB SQL against. 
+    <div className='relative w-full aspect-video'>
+      <iframe
+        src='https://player.vimeo.com/video/1051397093?badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+        frameBorder='0'
+        allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+        title='blog-video-1'
+        data-ready='true'
+        className='absolute top-0 left-0 w-full h-full'
+      ></iframe>
+    </div>
+
+    <Card title='DuckDB SQL' icon='code' href='https://duckdb.org/docs/sql/introduction.html'>
+    Learn DuckDB's dialect (very similar to Postgres)
+    </Card>
+
+  </Step>
+  <Step title='Ingest data using the Python SDK'>
+    <div className='relative w-full aspect-video'>
+      <iframe
+        src='https://player.vimeo.com/video/1051397038?badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+        frameBorder='0'
+        allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+        title='blog-video-1'
+        data-ready='true'
+        className='absolute top-0 left-0 w-full h-full'
+      ></iframe>
+    </div>
+    <Card title='Python SDK' icon='table' href='/datawarehouse/worksheet'>
+      Ingest data and query programmatically
+    </Card>
+  </Step>
+</Steps>
