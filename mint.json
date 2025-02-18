@@ -7,17 +7,13 @@
   },
   "favicon": "/favicon.svg",
   "modeToggle": {
-  "default": "dark",
-  "isHidden": true
-},
+    "default": "dark",
+    "isHidden": true
+  },
   "colors": {
-    "primary": "#a2e5d4",
+    "primary": "#0a0a0b",
     "light": "#a2e5d4",
-    "dark": "#a2e5d4",
-    "anchors": {
-      "from": "#a2e5d4",  
-      "to": "#a2e5d4"
-    }
+    "dark": "#0a0a0b"
   },
   "topbarLinks": [
     {
@@ -39,7 +35,7 @@
   ],
   "anchors": [
     {
-      "name": "App",
+      "name": "Platform",
       "icon": "house",
       "iconType": "solid",
       "url": "https://console.chakra.dev/"
