@@ -1,0 +1,43 @@
+---
+title: 'Model Context Protocol'
+description: 'Integrate data natively into chat'
+icon: 'microchip'
+---
+
+<div className='relative w-full aspect-video'>
+  <iframe
+    src='https://player.vimeo.com/video/1059896470?h=ed3460c0e3&badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+    frameBorder='0'
+    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+    title='blog-video-1'
+    data-ready='true'
+    className='absolute top-0 left-0 w-full h-full'
+  ></iframe>
+</div>
+
+## Intro
+
+Chakra supports Anthropic's [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP), allowing users to integrate data natively into existing chat clients.
+
+More details on this release can be found [here](https://www.chakra.dev/writing/chakra-now-supports-model-context-protocol-mcp).
+
+With MCP, existing chat experiences can be augmented with data from the marketplace along with an organization's proprietary data.
+
+## Setup
+
+<Steps>
+  <Step title='Sign-Up'>
+    Navigate to the [platform](https://console.chakra.dev/) and create your
+    accout using email or SSO.
+    <img src='/images/quickstart-1.png' />
+  </Step>
+  <Step title='Select your storage provider + region and provision your data warehouse'>
+    <img src='/images/quickstart-2.png' />
+  </Step>
+  <Step title='(Optional) Navigate to "Marketplace" in the sidebar and subscribe to a dataset' />
+  <Step title='Install MCP on Claude Desktop'>
+    Latest instructions can be found directly in the
+    [repository](https://github.com/Chakra-Network/mcp-server)
+  </Step>
+  <Step title='Restart Claude Desktop and start asking questions' />
+</Steps>

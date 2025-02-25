@@ -70,8 +70,8 @@
         "datawarehouse/architecture",
         "datawarehouse/worksheet",
         "datawarehouse/notebook",
-        "datawarehouse/workspace",
-        "datawarehouse/scout-ai"
+        "datawarehouse/mcp",
+        "datawarehouse/workspace"
       ]
     },
     {
