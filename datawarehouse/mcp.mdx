@@ -23,7 +23,7 @@ More details on this release can be found [here](https://www.chakra.dev/writing/
 
 With MCP, existing chat experiences can be augmented with data from the marketplace along with an organization's proprietary data.
 
-## Setup
+## Setup in Claude Desktop
 
 <Steps>
   <Step title='Sign-Up'>
@@ -40,4 +40,23 @@ With MCP, existing chat experiences can be augmented with data from the marketpl
     [repository](https://github.com/Chakra-Network/mcp-server)
   </Step>
   <Step title='Restart Claude Desktop and start asking questions' />
+</Steps>
+
+## Setup in Cursor
+
+<Steps>
+  <Step>
+    Follow instructions 1-4 above. Make sure you install the pre-requisites for
+    the MCP server, including Python and uv (you need not install OpenTools).
+  </Step>
+  <Step>Navigate to Settings -> Cursor Settings</Step>
+  <Step>
+    Select "Add a new MCP server". Name it "Chakra". Leave type as "command".
+  </Step>
+  <Step>
+    In command to run, insert the following: ```env
+    db_session_key=YOUR_DB_SESSION_KEY uvx chakra-mcp```
+    <img src='/images/mcp-cursor.png' />
+  </Step>
+  <Step>You can now interact with Chakra in Cursor chat.</Step>
 </Steps>
