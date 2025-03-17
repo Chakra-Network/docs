@@ -1,20 +1,19 @@
 ---
-title: 'Looker Studio Connector'
+title: 'Looker Studio'
 description: 'Visualize your Chakra data in Looker Studio dashboards'
 icon: 'chart-line'
 ---
 
-# Looker Studio Connector
-
-<Note type="warning">
-  This connector is currently in development and requires approval for access. Please contact us via [Discord](https://discord.gg/chakra-ai) or email at hi@chakra-labs.com to request access.
+<Note type='warning'>
+  This connector is currently in development and requires approval for access.
+  Please contact us via [Discord](https://discord.gg/chakra-ai) or email at
+  hi@chakra-labs.com to request access.
 </Note>
 
 Chakra's Looker Studio connector allows you to create powerful visualizations and dashboards using your warehouse data directly in Google's Looker Studio (formerly Data Studio).
 
 ## Why Use the Connector?
 
-- **Zero Data Export** - Query your data directly without exporting CSV files
 - **Real-time Dashboards** - Create live dashboards that refresh automatically
 - **Powerful Visualizations** - Leverage Looker Studio's extensive chart library
 - **Secure Access** - Uses your Chakra credentials for secure data access
@@ -24,47 +23,39 @@ Chakra's Looker Studio connector allows you to create powerful visualizations an
 
 <Steps>
   <Step title='Create a Looker Studio Account'>
-    If you don't already have one, sign up for a free account at [Looker Studio](https://lookerstudio.google.com/).
+    If you don't already have one, sign up for a free account at [Looker
+    Studio](https://lookerstudio.google.com/)
   </Step>
-  
-  <Step title='Create a New Data Source'>
-    In Looker Studio, click on "Create" and then select "Data Source". Scroll down to the bottom and select "Build your own connector".
-    
-    Enter the following Deployment ID in the provided field:
-    
-    ```
-    AKfycbyCvuGqvABcfe46rvgGfCTDzbJuORX14LQcVkx1CHy4LPSEr9TNWTQ5EtIN_guUuACBpw
-    ```
-    
-    <Note>
-      Access to this connector is limited during the development phase. If you encounter an access error, please contact our team to be added to the approved users list.
-    </Note>
-  </Step>
-  
-  <Step title='Configure the Connection'>
-    You'll need your Chakra DB Session Key, which can be found in the [settings page](https://console.chakra.dev/settings). The key format is:
-    
-    ```
-    access:secret:username
-    ```
-    
-    Enter this key in the DB Session Key field.
-  </Step>
-  
-  <Step title='Enter Your SQL Query'>
-    Enter the SQL query you want to use for your dashboard. For example:
-    
-    ```sql
-    SELECT * FROM duckdb.main.unicorn
-    ```
-    
-    <Note>
-      If you're unsure what tables are available, you can first explore your data in the [Worksheets](https://console.chakra.dev/worksheet) section.
-    </Note>
-  </Step>
-  
+<Step title='Create a New Data Source'>
+  In Looker Studio, click on "Create" and then select "Data Source". Scroll down
+  to the bottom and select "Build your own connector". Enter the following
+  Deployment ID in the provided field: ```
+  AKfycbyCvuGqvABcfe46rvgGfCTDzbJuORX14LQcVkx1CHy4LPSEr9TNWTQ5EtIN_guUuACBpw ```
+  <Note>
+    Access to this connector is limited during the development phase. If you
+    encounter an access error, please contact our team to be added to the
+    approved users list.
+  </Note>
+</Step>
+
+<Step title='Configure the Connection'>
+  You'll need your Chakra DB Session Key, which can be found in the [settings
+  page](https://console.chakra.dev/settings).
+</Step>
+
+<Step title='Enter Your SQL Query'>
+  Enter the SQL query you want to use for your dashboard. For example: ```sql
+  SELECT * FROM duckdb.main.unicorn ```
+  <Note>
+    If you're unsure what tables are available, you can first explore your data
+    in the [Worksheets](https://console.chakra.dev/worksheet) section.
+  </Note>
+</Step>
+
   <Step title='Create Your Report'>
-    Once connected, you can create visualizations using your Chakra data. Looker Studio will automatically detect field types and suggest appropriate visualizations.
+    Once connected, you can create visualizations using your Chakra data. Looker
+    Studio will automatically detect field types and suggest appropriate
+    visualizations.
   </Step>
 </Steps>
 
@@ -74,13 +65,13 @@ Chakra's Looker Studio connector allows you to create powerful visualizations an
 
 The connector automatically detects field types based on your data:
 
-| Data Type | Looker Studio Type | Notes |
-|-----------|-------------------|-------|
-| Numeric values | NUMBER | Automatically set as metrics |
-| Strings | TEXT | Set as dimensions |
-| Date strings (YYYY-MM-DD) | YEAR_MONTH_DAY | Properly formatted for time series |
-| Timestamps | YEAR_MONTH_DAY_SECOND | Full datetime support |
-| Booleans | BOOLEAN | Supports true/false filtering |
+| Data Type                 | Looker Studio Type    | Notes                              |
+| ------------------------- | --------------------- | ---------------------------------- |
+| Numeric values            | NUMBER                | Automatically set as metrics       |
+| Strings                   | TEXT                  | Set as dimensions                  |
+| Date strings (YYYY-MM-DD) | YEAR_MONTH_DAY        | Properly formatted for time series |
+| Timestamps                | YEAR_MONTH_DAY_SECOND | Full datetime support              |
+| Booleans                  | BOOLEAN               | Supports true/false filtering      |
 
 ### SQL Query Tips
 
@@ -94,7 +85,7 @@ For optimal performance with the connector:
 Example optimized query:
 
 ```sql
-SELECT 
+SELECT
   date_trunc('month', created_at) as month,
   category,
   SUM(revenue) as total_revenue,
@@ -111,28 +102,21 @@ LIMIT 5000
 The connector supports Looker Studio's filter controls. You can add filter widgets to your dashboard that will dynamically modify your SQL query.
 
 <Note>
-  For optimal performance, only use filters on dimensions (not metrics) and limit the number of filter controls to 3-5 per dashboard.
+  For optimal performance, only use filters on dimensions (not metrics) and
+  limit the number of filter controls to 3-5 per dashboard.
 </Note>
 
 ## Troubleshooting
 
 ### Common Issues
 
-| Issue | Solution |
-|-------|----------|
-| "Authentication failed" | Double-check your DB Session Key format (access:secret:username) |
-| "Query failed" | Verify your SQL syntax and table names |
-| "No data returned" | Check that your query returns data in the Worksheets section |
-| Date formatting issues | Ensure dates are in standard ISO format (YYYY-MM-DD) |
-| Slow performance | Add LIMIT clauses and optimize your query |
-
-### Rate Limits
-
-The connector respects Chakra's API rate limits. For dashboards with many charts or frequent refreshes, consider:
-
-- Using more efficient queries
-- Reducing auto-refresh frequency
-- Pre-aggregating data
+| Issue                  | Solution                                                     |
+| ---------------------- | ------------------------------------------------------------ |
+| Authentication failed  | Double-check your DB Session Key format                      |
+| Query failed           | Verify your SQL syntax and table names                       |
+| No data returned       | Check that your query returns data in the Worksheets section |
+| Date formatting issues | Ensure dates are in standard ISO format (YYYY-MM-DD)         |
+| Slow performance       | Add LIMIT clauses and optimize your query                    |
 
 ## Requesting Access
 
@@ -142,17 +126,5 @@ To request access:
 
 1. **Join our Discord** - The fastest way to get help is via our [Discord community](https://discord.gg/chakra-ai)
 2. **Email us** - Contact us at hi@chakra-labs.com with the subject "Looker Studio Connector Access Request"
-3. **Share your use case** - Briefly describe how you plan to use the connector
 
 Once approved, we'll add your email address to the authorized users list and notify you when access is granted.
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title='Worksheets' icon='table' href='/datawarehouse/worksheet'>
-    Explore and prepare your data for visualization.
-  </Card>
-  <Card title='Python SDK' icon='code' href='/datawarehouse/worksheet'>
-    Automate data preparation for your dashboards.
-  </Card>
-</CardGroup>
