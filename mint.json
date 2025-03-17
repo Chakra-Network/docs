@@ -71,6 +71,7 @@
         "datawarehouse/worksheet",
         "datawarehouse/notebook",
         "datawarehouse/mcp",
+        "datawarehouse/looker-studio",
         "datawarehouse/workspace"
       ]
     },
