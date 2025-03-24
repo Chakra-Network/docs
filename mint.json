@@ -78,7 +78,8 @@
     {
       "group": "Data Marketplace",
       "pages": [
-        "marketplace/introduction"
+        "marketplace/introduction",
+        "marketplace/verified"
       ]
     },
     {
