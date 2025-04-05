@@ -36,7 +36,7 @@ paths:
                   description: Found in [/settings](https://console.chakra.dev/settings).
                 username:
                   type: string
-                  description: Found in [/settings](https://console.chakra.dev/settings). The last third of the "database session key" - colon (`:`) delimited. We will be exposing this in the UI soon.
+                  description: Found in [/settings](https://console.chakra.dev/settings). Shown as "Username (for Bucket)" in the UI. This is different than your email address.
       responses:
         '201':
           description: Token created
