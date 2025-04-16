@@ -70,10 +70,11 @@
         "datawarehouse/quick-start",
         "datawarehouse/architecture",
         "datawarehouse/worksheet",
+        "datawarehouse/workspace",
         "datawarehouse/notebook",
         "datawarehouse/mcp",
         "datawarehouse/looker-studio",
-        "datawarehouse/workspace"
+        "datawarehouse/dune"
       ]
     },
     {

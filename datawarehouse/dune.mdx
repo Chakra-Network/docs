@@ -1,0 +1,51 @@
+---
+title: 'Dune'
+description: 'Querying on-chain data directly in DuckDB'
+icon: 'circle-half-stroke'
+---
+
+<div className='relative w-full aspect-video'>
+  <iframe
+    src='https://player.vimeo.com/video/1076054472?h=48d0d60697&badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
+    frameBorder='0'
+    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+    title='blog-video-1'
+    data-ready='true'
+    className='absolute top-0 left-0 w-full h-full'
+  ></iframe>
+</div>
+
+## Intro
+
+Chakra supports querying data from [Dune](https://dune.com/) natively in DuckDB, allowing users to analzye off-chain and on-chain data in one place.
+
+Example syntax:
+
+```
+SELECT * FROM @dune.[insert_query_id_here] LIMIT 10
+```
+
+An example use-case: users can upload their own key datasets (like proprietary labels) and join them against Dune data directly in one unified experience.
+
+<img src='/images/dune-3.png' />
+
+<Steps>
+  <Step title='Sign-Up'>
+    Navigate to [integrations](https://console.chakra.dev/integrations/dune) and
+    select Dune.
+    <img src='/images/dune-1.png' />
+  </Step>
+  <Step title='Add your Dune API key'>
+    You can find this directly in the [Dune settings
+    page](https://dune.com/settings/api).
+    <img src='/images/dune-2.png' />
+  </Step>
+  <Step title='Identify the Query Id'>
+  The `query_id` in a Dune URL is the **first** number in the URL. 
+  For example, for this query https://dune.com/queries/3593117/6053355, the `query_id` is `3593117`
+  </Step>
+  <Step title='Start querying data in DuckDB'>
+    ```SELECT * FROM @dune.[insert_query_id_here] LIMIT 10```
+  </Step>
+
+</Steps>
