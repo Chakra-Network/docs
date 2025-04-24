@@ -6,7 +6,7 @@ icon: 'database'
 
 <div className='relative w-full aspect-video'>
   <iframe
-    src='https://file.notion.so/f/f/f53b62f7-4758-45e1-b801-9a2ecc1573ab/b02cb22e-c9f3-4e23-84bb-408b68d93e00/replication.mp4?table=block&id=1dd5e4be-f876-80f3-b2cf-e137c9d692fc&spaceId=f53b62f7-4758-45e1-b801-9a2ecc1573ab&expirationTimestamp=1745503200000&signature=SFA68Qw_vQdqv5RlLi9Sm_cS46vRkYa6BdQra-x6wyc&downloadName=replication.mp4'
+    src='https://player.vimeo.com/video/1078221161?&badge=0&autopause=0&player_id=0&autoplay=1&muted=1&loop=1&controls=0&playsinline=true&dnt=1&app_id=58479&transparent=0'
     frameBorder='0'
     allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
     title='blog-video-1'
@@ -18,6 +18,7 @@ icon: 'database'
 ## Intro
 
 Chakra currently supports replcations via the following sources and destinations:
+
 - BigQuery -> GCS
 - GCS -> S3
 - Snowflake -> S3
@@ -27,8 +28,8 @@ Chakra currently supports replcations via the following sources and destinations
 
 <Steps>
   <Step title='Create a Replication'>
-    Navigate to [Replications](https://console.chakra.dev/replication) and
-    click on the "Create Replication" button.
+    Navigate to [Replications](https://console.chakra.dev/replication) and click
+    on the "Create Replication" button.
     <img src='/images/replication-1.png' />
   </Step>
   <Step title='Name the Replication'>
@@ -54,15 +55,17 @@ Chakra currently supports replcations via the following sources and destinations
   <Step title='Create a Table'>
     Click on the "Add Table" button, and enter details as necessary.
     <img src='/images/replication-12.png' />
-  </Step> 
+  </Step>
   <Step title='Trigger Sync'>
     Click on "Sync Now" in the "Sync" dropdown.
     <img src='/images/replication-14.png' />
-    Choose whether you would like an incremental or full sync. The sync can also be triggered via tha [API](/api-reference/run-table-sync).
+    Choose whether you would like an incremental or full sync. The sync can also
+    be triggered via tha [API](/api-reference/run-table-sync).
     <img src='/images/replication-15.png' />
   </Step>
   <Step title='Verify Sync Result'>
-    After the sync is finished, click on the Sync History to see its final status.
+    After the sync is finished, click on the Sync History to see its final
+    status.
     <img src='/images/replication-17.png' />
   </Step>
 </Steps>
