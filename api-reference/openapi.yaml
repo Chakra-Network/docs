@@ -6,8 +6,6 @@ info:
 servers:
   - url: https://api.chakra.dev
     description: Production server
-  - url: http://localhost:8080
-    description: Local development server
 security:
   - bearerAuth: []
 components:
@@ -243,3 +241,71 @@ paths:
                     type: string
                   name:
                     type: string
+  /api/replication/table_syncs_v1:
+    servers:
+      - url: https://console.chakra.dev
+        description: Console server only
+    get:
+      summary: Get Table Syncs
+      responses:
+        '200':
+          description: Table syncs grouped by replication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  databases:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        name:
+                          type: string
+                        source:
+                          type: object
+                          properties:
+                            credentials:
+                              type: object
+                        destination:
+                          type: object
+                          properties:
+                            credentials:
+                              type: object
+                        tables:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                format: uuid
+                              source_details:
+                                type: object
+                              destination_details:
+                                type: object
+    post:
+      summary: Run Table Sync
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tableSyncId:
+                  type: string
+                  format: uuid
+                incremental:
+                  type: boolean
+                  default: false
+      responses:
+        '200':
+          description: Table sync triggered
+          content:
+            application/json:
+              schema:
+                type: object

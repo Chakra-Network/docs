@@ -1,0 +1,68 @@
+---
+title: 'Replication'
+description: 'Data Transfer at Scale'
+icon: 'database'
+---
+
+<div className='relative w-full aspect-video'>
+  <iframe
+    src='https://file.notion.so/f/f/f53b62f7-4758-45e1-b801-9a2ecc1573ab/b02cb22e-c9f3-4e23-84bb-408b68d93e00/replication.mp4?table=block&id=1dd5e4be-f876-80f3-b2cf-e137c9d692fc&spaceId=f53b62f7-4758-45e1-b801-9a2ecc1573ab&expirationTimestamp=1745503200000&signature=SFA68Qw_vQdqv5RlLi9Sm_cS46vRkYa6BdQra-x6wyc&downloadName=replication.mp4'
+    frameBorder='0'
+    allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media'
+    title='blog-video-1'
+    data-ready='true'
+    className='absolute top-0 left-0 w-full h-full'
+  ></iframe>
+</div>
+
+## Intro
+
+Chakra currently supports replcations via the following sources and destinations:
+- BigQuery -> GCS
+- GCS -> S3
+- Snowflake -> S3
+- S3 -> S3
+
+## Getting Started
+
+<Steps>
+  <Step title='Create a Replication'>
+    Navigate to [Replications](https://console.chakra.dev/replication) and
+    click on the "Create Replication" button.
+    <img src='/images/replication-1.png' />
+  </Step>
+  <Step title='Name the Replication'>
+    Give the replication a name that you can identify it by.
+    <img src='/images/replication-2.png' />
+  </Step>
+  <Step title='Create a Source'>
+    Create a source via the dropdown (or choose a previously created source).
+    <img src='/images/replication-3.png' />
+    Enter details as necessary.
+    <img src='/images/replication-6.png' />
+  </Step>
+  <Step title='Create a Destination'>
+    Similarly, create or choose a destination via the dropdown.
+    <img src='/images/replication-7.png' />
+    Enter details as necessary.
+    <img src='/images/replication-8.png' />
+  </Step>
+  <Step title='Save Replication'>
+    Save the replication, and navigate to the replication page.
+    <img src='/images/replication-11.png' />
+  </Step>
+  <Step title='Create a Table'>
+    Click on the "Add Table" button, and enter details as necessary.
+    <img src='/images/replication-12.png' />
+  </Step> 
+  <Step title='Trigger Sync'>
+    Click on "Sync Now" in the "Sync" dropdown.
+    <img src='/images/replication-14.png' />
+    Choose whether you would like an incremental or full sync. The sync can also be triggered via tha [API](/api-reference/run-table-sync).
+    <img src='/images/replication-15.png' />
+  </Step>
+  <Step title='Verify Sync Result'>
+    After the sync is finished, click on the Sync History to see its final status.
+    <img src='/images/replication-17.png' />
+  </Step>
+</Steps>

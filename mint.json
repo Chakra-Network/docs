@@ -74,7 +74,8 @@
         "datawarehouse/notebook",
         "datawarehouse/mcp",
         "datawarehouse/looker-studio",
-        "datawarehouse/dune"
+        "datawarehouse/dune",
+        "datawarehouse/replication"
       ]
     },
     {
