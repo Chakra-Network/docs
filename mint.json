@@ -70,6 +70,7 @@
         "datawarehouse/quick-start",
         "datawarehouse/architecture",
         "datawarehouse/worksheet",
+        "datawarehouse/typescript",
         "datawarehouse/replication",
         "datawarehouse/workspace",
         "datawarehouse/notebook",

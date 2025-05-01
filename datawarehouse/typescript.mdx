@@ -1,0 +1,119 @@
+---
+title: 'Typescript SDK'
+description: 'Load, Query, and Tranform Data in Typescript / Javascript'
+icon: 'js'
+---
+
+The Typescript SDK allows you to programmatically interact with your local, subscribed, and published databases directly in NodeJS or browser setting.
+
+Latest documentation can be found directly on [GitHub](https://github.com/Chakra-Network/js-sdk). Non-exhaustive samples below.
+
+## Installation
+
+```bash
+npm install @chakra-dev/js-sdk
+# or
+yarn add @chakra-dev/js-sdk
+```
+
+## TypeScript
+
+```ts
+import { Chakra } from '@chakra-dev/js-sdk';
+
+async function main() {
+  const client = new Chakra('ACCESSKEY:SECRET:USERNAME');
+  await client.login();
+
+  const originalStudents = [
+    { id: 1, name: 'Alice', active: true },
+    { id: 2, name: 'Bob', active: false },
+  ];
+  // First push - creates table and inserts both records
+  await client.push('school.class.students', originalStudents, {
+    createIfMissing: true,
+    dedupeOnAppend: true,
+    primaryKeyColumns: ['id'],
+  });
+
+  await client.push('school.class.students', originalStudents, {
+    dedupeOnAppend: true, // no changes since records already exist
+    primaryKeyColumns: ['id'],
+  });
+
+  const updatedStudents = [
+    { id: 1, name: 'Alice', active: false },
+    { id: 2, name: 'Bob', active: false },
+    // new student
+    { id: 3, name: 'Charles', active: false },
+  ];
+  await client.push('school.class.students', updatedStudents, {
+    dedupeOnAppend: true, // only Charles will be updated since the other two will be deduped on id
+    primaryKeyColumns: ['id'],
+  });
+
+  await client.push('school.class.students', originalStudents, {
+    createIfMissing: true,
+    replaceIfExists: true, // replace the table with just the original students data. Charles no longer in table
+  });
+
+  const rows = await client.execute(
+    'SELECT * FROM school.class.students WHERE active = $1',
+    [true]
+  );
+  console.table(rows);
+}
+
+main().catch(console.error);
+```
+
+## CommonJS
+
+```js
+const { Chakra } = require('@chakra-dev/js-sdk');
+
+async function main() {
+  const client = new Chakra('ACCESSKEY:SECRET:USERNAME');
+  await client.login();
+
+  const originalStudents = [
+    { id: 1, name: 'Alice', active: true },
+    { id: 2, name: 'Bob', active: false },
+  ];
+  // First push - creates table and inserts both records
+  await client.push('school.class.students', originalStudents, {
+    createIfMissing: true,
+    dedupeOnAppend: true,
+    primaryKeyColumns: ['id'],
+  });
+
+  await client.push('school.class.students', originalStudents, {
+    dedupeOnAppend: true, // no changes since records already exist
+    primaryKeyColumns: ['id'],
+  });
+
+  const updatedStudents = [
+    { id: 1, name: 'Alice', active: false },
+    { id: 2, name: 'Bob', active: false },
+    // new student
+    { id: 3, name: 'Charles', active: false },
+  ];
+  await client.push('school.class.students', updatedStudents, {
+    dedupeOnAppend: true, // only Charles will be updated since the other two will be deduped on id
+    primaryKeyColumns: ['id'],
+  });
+
+  await client.push('school.class.students', originalStudents, {
+    createIfMissing: true,
+    replaceIfExists: true, // replace the table with just the original students data. Charles no longer in table
+  });
+
+  const rows = await client.execute(
+    'SELECT * FROM school.class.students WHERE active = $1',
+    [true]
+  );
+  console.table(rows);
+}
+
+main().catch(console.error);
+```
