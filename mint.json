@@ -83,7 +83,11 @@
       "group": "Data Marketplace",
       "pages": [
         "marketplace/introduction",
-        "marketplace/verified"
+        "marketplace/verified",
+        "marketplace/twitter",
+        "marketplace/coingecko",
+        "marketplace/depinninja",
+        "marketplace/slice-analytics"
       ]
     },
     {

@@ -1,0 +1,62 @@
+---
+title: 'Twitter'
+description: 'Posts, likes, retweets, and metadata from all collected public tweets and profiles.'
+icon: 'x'
+---
+
+This dataset is structured into two main tables: **profiles** and **tweets**.
+
+The **profiles** table contains information about Twitter user profiles, with the following columns:
+
+| Column Name           | Description                                    |
+| --------------------- | ---------------------------------------------- |
+| collect_timestamp     | Timestamp when the profile data was collected  |
+| id                    | Unique identifier for the Twitter user profile |
+| name                  | Name of the Twitter user                       |
+| display_name          | Display name of the Twitter user               |
+| bio                   | Biography of the Twitter user                  |
+| is_blue_verified      | Indicates if the user is blue verified         |
+| created_timestamp     | Timestamp when the Twitter account was created |
+| location              | Location of the Twitter user                   |
+| profession_type       | Type of profession of the Twitter user         |
+| profession_categories | Categories related to the user's profession    |
+| following             | Number of accounts the user is following       |
+| followers             | Number of followers the user has               |
+| tweets_count          | Total number of tweets made by the user        |
+| links                 | Links associated with the Twitter user         |
+| banner_image_url      | URL of the user's banner image                 |
+| profile_image_url     | URL of the user's profile image                |
+| pinned_tweet_ids      | IDs of tweets pinned by the user               |
+
+The **tweets** table contains information about tweets made by users, with the following columns:
+
+| Column Name           | Description                                       |
+| --------------------- | ------------------------------------------------- |
+| collect_timestamp     | Timestamp when the tweet data was collected       |
+| id                    | Unique identifier for the tweet                   |
+| poster_id             | ID of the user who posted the tweet               |
+| text                  | Content of the tweet                              |
+| timestamp             | Timestamp when the tweet was posted               |
+| is_note               | Indicates if the tweet is a note                  |
+| images                | Images associated with the tweet                  |
+| videos                | Videos associated with the tweet                  |
+| hashtags              | Hashtags used in the tweet                        |
+| tagged_users          | Users tagged in the tweet                         |
+| replies               | Number of replies to the tweet                    |
+| reposts               | Number of times the tweet has been reposted       |
+| likes                 | Number of likes the tweet has received            |
+| views                 | Number of views the tweet has received            |
+| quotes                | Number of quotes of the tweet                     |
+| bookmarks             | Number of bookmarks of the tweet                  |
+| quote_parent_id       | ID of the parent tweet if this tweet is a quote   |
+| quote_poster_id       | ID of the user who posted the parent tweet        |
+| reply_conversation_id | ID of the conversation this tweet is part of      |
+| reply_parent_id       | ID of the parent tweet in the reply conversation  |
+| reply_poster_id       | ID of the user who posted the parent tweet        |
+| retweet_parent_id     | ID of the parent tweet if this tweet is a retweet |
+| retweet_poster_id     | ID of the user who posted the parent tweet        |
+
+### Utilities for the Twitter dataset
+
+1. Tweet Id to URL: https://twitter.com/i/web/status/{tweetId}
+2. Profile Id to URL: https://twitter.com/intent/user?user_id={userId}
