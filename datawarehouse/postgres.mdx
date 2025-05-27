@@ -1,0 +1,43 @@
+---
+title: PostgreSQL
+icon: 'elephant'
+description: Query and join your existing PostgreSQL databases with DuckDB data.
+---
+
+## What You Can Do
+
+- **Query** your Postgres tables directly from Chakra.
+- **Join** Postgres data with DuckDB tables in a single query.
+- **Analyze** and visualize combined data without manual exports or ETL.
+
+> **Note:** No replication is required here. The Postgres tables are queried natively using [pg_duckdb](https://github.com/duckdb/pg_duckdb).
+
+## Example Use Case
+
+Suppose you have customer data in Postgres and product analytics in DuckDB. With Chakra, you can write a single SQL query to join these sources:
+
+```sql
+SELECT c.name, a.product_id, a.event_time
+FROM postgres.customers c
+JOIN duckdb.analytics a ON c.id = a.customer_id
+WHERE a.event_time > NOW() - INTERVAL '7 days';
+```
+
+## Getting Started
+
+<Steps>
+  <Step>
+    <b>Connect your Postgres database</b> in the [Chakra
+    UI](https://console.chakra.dev/worksheet).
+    <img src='/images/postgres-1.png' />
+  </Step>
+  <Step>
+    Add requisite details and confirm the database has been attached. You will
+    see "blue" icons corresponding to Postgres attached databases.
+    <img src='/images/postgres-2.png' />
+  </Step>
+  <Step>
+    Query and join the data like a normal DuckDB database.
+    <img src='/images/postgres-3.png' />
+  </Step>
+</Steps>
