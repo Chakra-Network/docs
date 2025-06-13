@@ -93,10 +93,16 @@
       ]
     },
     {
-      "group": "Data Scout - Subnet 0",
+      "group": "Scout - Subnet 0",
       "pages": [
         "scout/introduction",
         "scout/faq"
+      ]
+    },
+    {
+      "group": "Pango - Subnet 1",
+      "pages": [
+        "pango/introduction"
       ]
     }
   ],
