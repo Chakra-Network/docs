@@ -1,0 +1,67 @@
+---
+title: 'Reddit'
+description: 'Posts, comments, and subreddits.'
+icon: 'reddit'
+---
+
+This dataset is collected by [Subnet 0](/scout/introduction) and organized into three main tables: **posts**, **comments**, and **subreddits**.
+
+The **posts** table contains information about Reddit posts, with the following columns:
+
+| Column Name       | Description                                     |
+| ----------------- | ----------------------------------------------- |
+| author            | Username of the post author                     |
+| author_flair_text | Flair text displayed next to the author's name  |
+| author_premium    | Indicates if the author has Reddit Premium      |
+| body              | Text content of the post                        |
+| created_at        | Timestamp when the post was created             |
+| edited_at         | Timestamp when the post was last edited         |
+| id                | Unique identifier for the Reddit post           |
+| image_urls        | Array of image URLs associated with the post    |
+| is_nsfw           | Indicates if the post is marked as NSFW         |
+| is_video          | Indicates if the post contains video content    |
+| link_flair_text   | Flair text for the post's link                  |
+| locked            | Indicates if the post is locked for comments    |
+| num_comments      | Number of comments on the post                  |
+| permalink         | Permanent link to the Reddit post               |
+| score             | Net score (upvotes minus downvotes) of the post |
+| stickied          | Indicates if the post is stickied/pinned        |
+| subreddit_id      | ID of the subreddit where the post was made     |
+| thumbnail_url     | URL of the post's thumbnail image               |
+| title             | Title of the Reddit post                        |
+| ups               | Number of upvotes the post has received         |
+| upvote_ratio      | Ratio of upvotes to total votes                 |
+| url               | URL associated with the post (for link posts)   |
+
+The **comments** table contains information about Reddit comments, with the following columns:
+
+| Column Name    | Description                                        |
+| -------------- | -------------------------------------------------- |
+| archived       | Indicates if the comment is archived               |
+| author         | Username of the comment author                     |
+| author_premium | Indicates if the author has Reddit Premium         |
+| body           | Text content of the comment                        |
+| created_at     | Timestamp when the comment was created             |
+| depth          | Nesting level of the comment in the thread         |
+| edited_at      | Timestamp when the comment was last edited         |
+| id             | Unique identifier for the Reddit comment           |
+| is_submitter   | Indicates if the commenter is the post submitter   |
+| parent_id      | ID of the parent comment or post                   |
+| post_id        | ID of the post this comment belongs to             |
+| score          | Net score (upvotes minus downvotes) of the comment |
+| stickied       | Indicates if the comment is stickied/pinned        |
+| subreddit_id   | ID of the subreddit where the comment was made     |
+
+The **subreddits** table contains information about Reddit subreddits, with the following columns:
+
+| Column Name | Description                         |
+| ----------- | ----------------------------------- |
+| id          | Unique identifier for the subreddit |
+| members     | Number of members/subscribers       |
+| name        | Name of the subreddit               |
+
+### Utilities for the Reddit dataset
+
+1. Post Permalink to URL: https://reddit.com{permalink}
+2. Subreddit Name to URL: https://reddit.com/r/{subredditName}
+3. User Profile to URL: https://reddit.com/u/{username}

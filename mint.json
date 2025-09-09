@@ -87,6 +87,7 @@
         "marketplace/verified",
         "marketplace/twitter",
         "marketplace/linkedin",
+        "marketplace/reddit",
         "marketplace/coingecko",
         "marketplace/depinninja",
         "marketplace/slice-analytics"
