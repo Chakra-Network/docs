@@ -1,0 +1,70 @@
+---
+title: 'Farcaster'
+description: 'Casts, reactions, and profiles (via the Indexing Co.)'
+icon: 'wand-magic'
+---
+
+All public data from [Farcaster](https://farcaster.xyz/), a sufficiently decentralized social network. This dataset is provided courtesy of the [Indexing Co](https://www.indexing.co/).
+
+Includes core protocol data for casts, reactions, links, profiles, and verifications.
+
+## Table Schemas
+
+### casts
+
+| Column Name        | Type                    | Nullable | Description                                   |
+| ------------------ | ----------------------- | -------- | --------------------------------------------- |
+| fid                | bigint                  | false    | Farcaster ID of the user who created the cast |
+| hash               | text                    | false    | Unique hash identifier for the cast           |
+| timestamp          | timestamp with timezone | true     | When the cast was created                     |
+| embeds             | ARRAY                   | true     | Array of embedded content (URLs, images)      |
+| parent_cast_url    | text                    | true     | URL of the parent cast if this is a reply     |
+| parent_cast_fid    | bigint                  | true     | FID of the parent cast author                 |
+| parent_cast_hash   | text                    | true     | Hash of the parent cast                       |
+| text               | text                    | true     | Text content of the cast                      |
+| mentions           | ARRAY                   | true     | Array of mentioned user FIDs                  |
+| mentions_positions | ARRAY                   | true     | Positions of mentions in the text             |
+| deleted_at         | timestamp with timezone | true     | When the cast was deleted (if applicable)     |
+
+### links
+
+| Column Name | Type                    | Nullable | Description                                |
+| ----------- | ----------------------- | -------- | ------------------------------------------ |
+| fid         | bigint                  | false    | Farcaster ID of the user creating the link |
+| timestamp   | timestamp with timezone | true     | When the link was created                  |
+| target_fid  | bigint                  | false    | Farcaster ID of the target user            |
+| type        | text                    | false    | Type of link (follow, unfollow, etc.)      |
+| deleted_at  | timestamp with timezone | true     | When the link was deleted (if applicable)  |
+
+### profiles
+
+| Column Name     | Type                    | Nullable | Description                                   |
+| --------------- | ----------------------- | -------- | --------------------------------------------- |
+| fid             | bigint                  | false    | Farcaster ID of the user (primary identifier) |
+| data            | jsonb                   | true     | Profile data (name, bio, avatar, etc.)        |
+| custody_address | text                    | true     | Ethereum address with custody of this FID     |
+| last_updated_at | timestamp with timezone | true     | When the profile was last updated             |
+
+### reactions
+
+| Column Name      | Type                    | Nullable | Description                                    |
+| ---------------- | ----------------------- | -------- | ---------------------------------------------- |
+| fid              | bigint                  | false    | Farcaster ID of the user creating the reaction |
+| timestamp        | timestamp with timezone | true     | When the reaction was created                  |
+| target_cast_fid  | bigint                  | false    | FID of the cast author being reacted to        |
+| target_cast_hash | text                    | false    | Hash of the cast being reacted to              |
+| type             | text                    | false    | Type of reaction (like, recast, etc.)          |
+| deleted_at       | timestamp with timezone | true     | When the reaction was deleted (if applicable)  |
+
+### verifications
+
+| Column Name | Type                    | Nullable | Description                                       |
+| ----------- | ----------------------- | -------- | ------------------------------------------------- |
+| fid         | bigint                  | false    | Farcaster ID of the user                          |
+| address     | text                    | false    | Verified Ethereum address                         |
+| timestamp   | timestamp with timezone | true     | When the verification was created                 |
+| deleted_at  | timestamp with timezone | true     | When the verification was deleted (if applicable) |
+
+### Utilities for the Farcaster Dataset
+
+- **Social Graph Construction**: Join `links` table on `fid` and `target_fid` to build follower networks and influence maps

@@ -88,20 +88,21 @@
         "marketplace/twitter",
         "marketplace/linkedin",
         "marketplace/reddit",
+        "marketplace/farcaster",
         "marketplace/coingecko",
         "marketplace/depinninja",
         "marketplace/slice-analytics"
       ]
     },
     {
-      "group": "Scout - Subnet 0",
+      "group": "SN0: Scout",
       "pages": [
         "scout/introduction",
         "scout/faq"
       ]
     },
     {
-      "group": "Pango - Subnet 1",
+      "group": "SN1: Pango",
       "pages": [
         "pango/introduction"
       ]
