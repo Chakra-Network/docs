@@ -6,59 +6,61 @@ icon: 'reddit'
 
 This dataset is collected by [Scout](/scout/introduction) and organized into three main tables: **posts**, **comments**, and **subreddits**.
 
-The **posts** table contains information about Reddit posts, with the following columns:
+## Table Schemas
 
-| Column Name       | Description                                     |
-| ----------------- | ----------------------------------------------- |
-| author            | Username of the post author                     |
-| author_flair_text | Flair text displayed next to the author's name  |
-| author_premium    | Indicates if the author has Reddit Premium      |
-| body              | Text content of the post                        |
-| created_at        | Timestamp when the post was created             |
-| edited_at         | Timestamp when the post was last edited         |
-| id                | Unique identifier for the Reddit post           |
-| image_urls        | Array of image URLs associated with the post    |
-| is_nsfw           | Indicates if the post is marked as NSFW         |
-| is_video          | Indicates if the post contains video content    |
-| link_flair_text   | Flair text for the post's link                  |
-| locked            | Indicates if the post is locked for comments    |
-| num_comments      | Number of comments on the post                  |
-| permalink         | Permanent link to the Reddit post               |
-| score             | Net score (upvotes minus downvotes) of the post |
-| stickied          | Indicates if the post is stickied/pinned        |
-| subreddit_id      | ID of the subreddit where the post was made     |
-| thumbnail_url     | URL of the post's thumbnail image               |
-| title             | Title of the Reddit post                        |
-| ups               | Number of upvotes the post has received         |
-| upvote_ratio      | Ratio of upvotes to total votes                 |
-| url               | URL associated with the post (for link posts)   |
+### posts
 
-The **comments** table contains information about Reddit comments, with the following columns:
+| Column Name       | Type                    | Nullable | Description                                     |
+| ----------------- | ----------------------- | -------- | ----------------------------------------------- |
+| author            | text                    | true     | Username of the post author                     |
+| author_flair_text | text                    | true     | Flair text displayed next to the author's name  |
+| author_premium    | boolean                 | true     | Indicates if the author has Reddit Premium      |
+| body              | text                    | true     | Text content of the post                        |
+| created_at        | timestamp with timezone | false    | Timestamp when the post was created             |
+| edited_at         | timestamp with timezone | true     | Timestamp when the post was last edited         |
+| id                | text                    | false    | Unique identifier for the Reddit post           |
+| image_urls        | ARRAY                   | true     | Array of image URLs associated with the post    |
+| is_nsfw           | boolean                 | true     | Indicates if the post is marked as NSFW         |
+| is_video          | boolean                 | true     | Indicates if the post contains video content    |
+| link_flair_text   | text                    | true     | Flair text for the post's link                  |
+| locked            | boolean                 | true     | Indicates if the post is locked for comments    |
+| num_comments      | bigint                  | true     | Number of comments on the post                  |
+| permalink         | text                    | true     | Permanent link to the Reddit post               |
+| score             | bigint                  | true     | Net score (upvotes minus downvotes) of the post |
+| stickied          | boolean                 | true     | Indicates if the post is stickied/pinned        |
+| subreddit_id      | text                    | true     | ID of the subreddit where the post was made     |
+| thumbnail_url     | text                    | true     | URL of the post's thumbnail image               |
+| title             | text                    | true     | Title of the Reddit post                        |
+| ups               | bigint                  | true     | Number of upvotes the post has received         |
+| upvote_ratio      | float                   | true     | Ratio of upvotes to total votes                 |
+| url               | text                    | true     | URL associated with the post (for link posts)   |
 
-| Column Name    | Description                                        |
-| -------------- | -------------------------------------------------- |
-| archived       | Indicates if the comment is archived               |
-| author         | Username of the comment author                     |
-| author_premium | Indicates if the author has Reddit Premium         |
-| body           | Text content of the comment                        |
-| created_at     | Timestamp when the comment was created             |
-| depth          | Nesting level of the comment in the thread         |
-| edited_at      | Timestamp when the comment was last edited         |
-| id             | Unique identifier for the Reddit comment           |
-| is_submitter   | Indicates if the commenter is the post submitter   |
-| parent_id      | ID of the parent comment or post                   |
-| post_id        | ID of the post this comment belongs to             |
-| score          | Net score (upvotes minus downvotes) of the comment |
-| stickied       | Indicates if the comment is stickied/pinned        |
-| subreddit_id   | ID of the subreddit where the comment was made     |
+### comments
 
-The **subreddits** table contains information about Reddit subreddits, with the following columns:
+| Column Name    | Type                    | Nullable | Description                                        |
+| -------------- | ----------------------- | -------- | -------------------------------------------------- |
+| archived       | boolean                 | true     | Indicates if the comment is archived               |
+| author         | text                    | true     | Username of the comment author                     |
+| author_premium | boolean                 | true     | Indicates if the author has Reddit Premium         |
+| body           | text                    | true     | Text content of the comment                        |
+| created_at     | timestamp with timezone | false    | Timestamp when the comment was created             |
+| depth          | bigint                  | true     | Nesting level of the comment in the thread         |
+| edited_at      | timestamp with timezone | true     | Timestamp when the comment was last edited         |
+| id             | text                    | false    | Unique identifier for the Reddit comment           |
+| is_submitter   | boolean                 | true     | Indicates if the commenter is the post submitter   |
+| parent_id      | text                    | true     | ID of the parent comment or post                   |
+| post_id        | text                    | true     | ID of the post this comment belongs to             |
+| score          | bigint                  | true     | Net score (upvotes minus downvotes) of the comment |
+| stickied       | boolean                 | true     | Indicates if the comment is stickied/pinned        |
+| subreddit_id   | text                    | true     | ID of the subreddit where the comment was made     |
 
-| Column Name | Description                         |
-| ----------- | ----------------------------------- |
-| id          | Unique identifier for the subreddit |
-| members     | Number of members/subscribers       |
-| name        | Name of the subreddit               |
+### subreddits
+
+| Column Name | Type   | Nullable | Description                         |
+| ----------- | ------ | -------- | ----------------------------------- |
+| id          | text   | false    | Unique identifier for the subreddit |
+| members     | bigint | true     | Number of members/subscribers       |
+| name        | text   | false    | Name of the subreddit               |
 
 ### Utilities for the Reddit dataset
 

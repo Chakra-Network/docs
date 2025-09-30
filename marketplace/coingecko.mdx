@@ -6,41 +6,43 @@ icon: 'coins'
 
 This dataset is structured into two main tables: **history** and **projects**.
 
-The **history** table contains historical data for cryptocurrencies, with the following columns:
+## Table Schemas
 
-| Column Name  | Description                              |
-| ------------ | ---------------------------------------- |
-| COINGECKO_ID | Unique identifier for the cryptocurrency |
-| DATE         | Date of the recorded data                |
-| FDMC         | Fully Diluted Market Cap                 |
-| H24_VOLUME   | 24-hour trading volume                   |
-| MARKET_CAP   | Market capitalization                    |
-| PRICE        | Price of the cryptocurrency              |
-| SYMBOL       | Symbol of the cryptocurrency             |
+### history
 
-The **projects** table provides detailed information about cryptocurrency projects, with the following columns:
+| Column Name  | Type   | Nullable | Description                              |
+| ------------ | ------ | -------- | ---------------------------------------- |
+| COINGECKO_ID | text   | false    | Unique identifier for the cryptocurrency |
+| DATE         | date   | false    | Date of the recorded data                |
+| FDMC         | bigint | true     | Fully Diluted Market Cap                 |
+| H24_VOLUME   | bigint | true     | 24-hour trading volume                   |
+| MARKET_CAP   | bigint | true     | Market capitalization                    |
+| PRICE        | float  | true     | Price of the cryptocurrency              |
+| SYMBOL       | text   | false    | Symbol of the cryptocurrency             |
 
-| Column Name                      | Description                                            |
-| -------------------------------- | ------------------------------------------------------ |
-| CIRCULATING_SUPPLY               | Current circulating supply of the cryptocurrency       |
-| COINGECKO_ID                     | Unique identifier for the cryptocurrency               |
-| FDMC                             | Fully Diluted Market Cap                               |
-| HIGH_24H                         | Highest price in the last 24 hours                     |
-| LOW_24H                          | Lowest price in the last 24 hours                      |
-| MARKET_CAP                       | Market capitalization                                  |
-| MARKET_CAP_CHANGE_24H            | Change in market cap over the last 24 hours            |
-| MARKET_CAP_CHANGE_PERCENTAGE_24H | Percentage change in market cap over the last 24 hours |
-| MAX_SUPPLY                       | Maximum supply of the cryptocurrency                   |
-| NAME                             | Name of the cryptocurrency project                     |
-| PRICE                            | Current price of the cryptocurrency                    |
-| PRICE_ATH                        | All-time high price                                    |
-| PRICE_ATH_CHANGE_PERCENTAGE      | Percentage change from all-time high price             |
-| PRICE_ATH_DATE                   | Date of the all-time high price                        |
-| PRICE_ATL                        | All-time low price                                     |
-| PRICE_ATL_CHANGE_PERCENTAGE      | Percentage change from all-time low price              |
-| PRICE_ATL_DATE                   | Date of the all-time low price                         |
-| PRICE_CHANGE_24H                 | Price change over the last 24 hours                    |
-| PRICE_CHANGE_PERCENTAGE_24H      | Percentage change in price over the last 24 hours      |
-| SYMBOL                           | Symbol of the cryptocurrency                           |
-| TOTAL_SUPPLY                     | Total supply of the cryptocurrency                     |
-| VOLUME_24H                       | 24-hour trading volume                                 |
+### projects
+
+| Column Name                      | Type                    | Nullable | Description                                            |
+| -------------------------------- | ----------------------- | -------- | ------------------------------------------------------ |
+| CIRCULATING_SUPPLY               | bigint                  | true     | Current circulating supply of the cryptocurrency       |
+| COINGECKO_ID                     | text                    | false    | Unique identifier for the cryptocurrency               |
+| FDMC                             | bigint                  | true     | Fully Diluted Market Cap                               |
+| HIGH_24H                         | float                   | true     | Highest price in the last 24 hours                     |
+| LOW_24H                          | float                   | true     | Lowest price in the last 24 hours                      |
+| MARKET_CAP                       | bigint                  | true     | Market capitalization                                  |
+| MARKET_CAP_CHANGE_24H            | bigint                  | true     | Change in market cap over the last 24 hours            |
+| MARKET_CAP_CHANGE_PERCENTAGE_24H | float                   | true     | Percentage change in market cap over the last 24 hours |
+| MAX_SUPPLY                       | bigint                  | true     | Maximum supply of the cryptocurrency                   |
+| NAME                             | text                    | false    | Name of the cryptocurrency project                     |
+| PRICE                            | float                   | true     | Current price of the cryptocurrency                    |
+| PRICE_ATH                        | float                   | true     | All-time high price                                    |
+| PRICE_ATH_CHANGE_PERCENTAGE      | float                   | true     | Percentage change from all-time high price             |
+| PRICE_ATH_DATE                   | timestamp with timezone | true     | Date of the all-time high price                        |
+| PRICE_ATL                        | float                   | true     | All-time low price                                     |
+| PRICE_ATL_CHANGE_PERCENTAGE      | float                   | true     | Percentage change from all-time low price              |
+| PRICE_ATL_DATE                   | timestamp with timezone | true     | Date of the all-time low price                         |
+| PRICE_CHANGE_24H                 | float                   | true     | Price change over the last 24 hours                    |
+| PRICE_CHANGE_PERCENTAGE_24H      | float                   | true     | Percentage change in price over the last 24 hours      |
+| SYMBOL                           | text                    | false    | Symbol of the cryptocurrency                           |
+| TOTAL_SUPPLY                     | bigint                  | true     | Total supply of the cryptocurrency                     |
+| VOLUME_24H                       | bigint                  | true     | 24-hour trading volume                                 |

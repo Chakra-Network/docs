@@ -6,71 +6,87 @@ icon: 'x'
 
 This dataset is collected by [Scout](/scout/introduction) and organized into two main tables: **profiles** and **tweets**.
 
-The **profiles** table contains information about Twitter user profiles, with the following columns:
+## Table Schemas
 
-| Column Name           | Description                                    |
-| --------------------- | ---------------------------------------------- |
-| banner_image_url      | URL of the user's banner image                 |
-| bio                   | Biography of the Twitter user                  |
-| created_timestamp     | Timestamp when the Twitter account was created |
-| display_name          | Display name of the Twitter user               |
-| followers_count       | Number of followers the user has               |
-| following_count       | Number of accounts the user is following       |
-| id                    | Unique identifier for the Twitter user profile |
-| is_blue_verified      | Indicates if the user is blue verified         |
-| links                 | Links associated with the Twitter user         |
-| location              | Location of the Twitter user                   |
-| name                  | Name of the Twitter user                       |
-| pinned_tweet_ids      | IDs of tweets pinned by the user               |
-| profession_categories | Categories related to the user's profession    |
-| profession_type       | Type of profession of the Twitter user         |
-| profile_image_url     | URL of the user's profile image                |
-| tweets_count          | Total number of tweets made by the user        |
+### profiles
 
-The **tweets** table contains information about tweets made by users, with the following columns:
+| Column Name           | Type                    | Nullable | Description                                    |
+| --------------------- | ----------------------- | -------- | ---------------------------------------------- |
+| banner_image_url      | text                    | true     | URL of the user's banner image                 |
+| bio                   | text                    | true     | Biography of the Twitter user                  |
+| created_timestamp     | timestamp with timezone | true     | Timestamp when the Twitter account was created |
+| display_name          | text                    | true     | Display name of the Twitter user               |
+| followers_count       | bigint                  | true     | Number of followers the user has               |
+| following_count       | bigint                  | true     | Number of accounts the user is following       |
+| id                    | text                    | false    | Unique identifier for the Twitter user profile |
+| is_blue_verified      | boolean                 | true     | Indicates if the user is blue verified         |
+| links                 | ARRAY                   | true     | Links associated with the Twitter user         |
+| location              | text                    | true     | Location of the Twitter user                   |
+| name                  | text                    | true     | Name of the Twitter user                       |
+| pinned_tweet_ids      | ARRAY                   | true     | IDs of tweets pinned by the user               |
+| profession_categories | ARRAY                   | true     | Categories related to the user's profession    |
+| profession_type       | text                    | true     | Type of profession of the Twitter user         |
+| profile_image_url     | text                    | true     | URL of the user's profile image                |
+| tweets_count          | bigint                  | true     | Total number of tweets made by the user        |
 
-| Column Name             | Description                                       |
-| ----------------------- | ------------------------------------------------- |
-| article_cover_image_url | URL of the article's cover image                  |
-| article_id              | ID of the article if the tweet links to one       |
-| article_preview_text    | Preview text of the linked article                |
-| article_title           | Title of the linked article                       |
-| bookmarks               | Number of bookmarks of the tweet                  |
-| hashtags                | Hashtags used in the tweet                        |
-| id                      | Unique identifier for the tweet                   |
-| images                  | Images associated with the tweet                  |
-| is_note                 | Indicates if the tweet is a note                  |
-| likes                   | Number of likes the tweet has received            |
-| poster_id               | ID of the user who posted the tweet               |
-| quotes                  | Number of quotes of the tweet                     |
-| quote_parent_id         | ID of the parent tweet if this tweet is a quote   |
-| quote_poster_id         | ID of the user who posted the parent tweet        |
-| replies                 | Number of replies to the tweet                    |
-| reply_conversation_id   | ID of the conversation this tweet is part of      |
-| reply_parent_id         | ID of the parent tweet in the reply conversation  |
-| reply_poster_id         | ID of the user who posted the parent tweet        |
-| reposts                 | Number of times the tweet has been reposted       |
-| retweet_parent_id       | ID of the parent tweet if this tweet is a retweet |
-| retweet_poster_id       | ID of the user who posted the parent tweet        |
-| tagged_users            | Users tagged in the tweet                         |
-| text                    | Content of the tweet                              |
-| timestamp               | Timestamp when the tweet was posted               |
-| videos                  | Videos associated with the tweet                  |
-| views                   | Number of views the tweet has received            |
+### tweets
+
+| Column Name             | Type                    | Nullable | Description                                       |
+| ----------------------- | ----------------------- | -------- | ------------------------------------------------- |
+| article_cover_image_url | text                    | true     | URL of the article's cover image                  |
+| article_id              | text                    | true     | ID of the article if the tweet links to one       |
+| article_preview_text    | text                    | true     | Preview text of the linked article                |
+| article_title           | text                    | true     | Title of the linked article                       |
+| bookmarks               | bigint                  | true     | Number of bookmarks of the tweet                  |
+| hashtags                | ARRAY                   | true     | Hashtags used in the tweet                        |
+| id                      | text                    | false    | Unique identifier for the tweet                   |
+| images                  | ARRAY                   | true     | Images associated with the tweet                  |
+| is_note                 | boolean                 | true     | Indicates if the tweet is a note                  |
+| likes                   | bigint                  | true     | Number of likes the tweet has received            |
+| poster_id               | text                    | false    | ID of the user who posted the tweet               |
+| quotes                  | bigint                  | true     | Number of quotes of the tweet                     |
+| quote_parent_id         | text                    | true     | ID of the parent tweet if this tweet is a quote   |
+| quote_poster_id         | text                    | true     | ID of the user who posted the parent tweet        |
+| replies                 | bigint                  | true     | Number of replies to the tweet                    |
+| reply_conversation_id   | text                    | true     | ID of the conversation this tweet is part of      |
+| reply_parent_id         | text                    | true     | ID of the parent tweet in the reply conversation  |
+| reply_poster_id         | text                    | true     | ID of the user who posted the parent tweet        |
+| reposts                 | bigint                  | true     | Number of times the tweet has been reposted       |
+| retweet_parent_id       | text                    | true     | ID of the parent tweet if this tweet is a retweet |
+| retweet_poster_id       | text                    | true     | ID of the user who posted the parent tweet        |
+| tagged_users            | ARRAY                   | true     | Users tagged in the tweet                         |
+| text                    | text                    | true     | Content of the tweet                              |
+| timestamp               | timestamp with timezone | false    | Timestamp when the tweet was posted               |
+| videos                  | ARRAY                   | true     | Videos associated with the tweet                  |
+| views                   | bigint                  | true     | Number of views the tweet has received            |
 
 ## Enterprise Only
 
-The **profile_timeseries** table contains timeseries data for Twitter profile statistics:
+### profile_timeseries
 
-| Column Name     | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| id              | Unique identifier for the Twitter user profile        |
-| timestamp       | Timestamp when the profile stats snapshot was taken   |
-| following_count | Number of accounts the user is following at this time |
-| followers_count | Number of followers the user has at this time         |
-| tweets_count    | Total number of tweets made by the user at this time  |
+| Column Name     | Type                    | Nullable | Description                                           |
+| --------------- | ----------------------- | -------- | ----------------------------------------------------- |
+| id              | text                    | false    | Unique identifier for the Twitter user profile        |
+| timestamp       | timestamp with timezone | false    | Timestamp when the profile stats snapshot was taken   |
+| following_count | bigint                  | true     | Number of accounts the user is following at this time |
+| followers_count | bigint                  | true     | Number of followers the user has at this time         |
+| tweets_count    | bigint                  | true     | Total number of tweets made by the user at this time  |
 
 Each row represents a snapshot of a profile's statistics at a specific timestamp. The data is updated periodically at the same time as the profiles table and is ordered by timestamp for optimal query performance when using timestamp in query conditionals.
+
+### articles
+
+| Column Name         | Type   | Nullable | Description                                        |
+| ------------------- | ------ | -------- | -------------------------------------------------- |
+| content_json        | jsonb  | true     | Full article content in JSON format                |
+| cover_image_url     | text   | true     | URL of the article's cover image                   |
+| id                  | text   | false    | Unique identifier for the article                  |
+| media_entities_json | jsonb  | true     | Media entities associated with the article in JSON |
+| parent_tweet_id     | text   | true     | ID of the tweet that links to this article         |
+| poster_id           | text   | false    | ID of the user who posted the article              |
+| preview_text        | text   | true     | Preview text of the article                        |
+| timestamp           | bigint | true     | Timestamp when the article was created             |
+| title               | text   | true     | Title of the article                               |
 
 ### Utilities for the Twitter dataset
 

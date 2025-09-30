@@ -6,54 +6,56 @@ icon: 'linkedin'
 
 This dataset is collected by [Scout](/scout/introduction) and organized into two main tables: **companies** and **profiles**.
 
-The **companies** table contains information about LinkedIn companies, with the following columns:
+## Table Schemas
 
-| Column Name        | Description                                |
-| ------------------ | ------------------------------------------ |
-| id                 | Unique identifier for the LinkedIn company |
-| name               | Name of the LinkedIn company               |
-| tagline            | Tagline of the LinkedIn company            |
-| description        | Description of the LinkedIn company        |
-| industries         | Industries associated with the company     |
-| website            | Website URL of the LinkedIn company        |
-| location           | Location of the LinkedIn company           |
-| founded_date       | Date when the LinkedIn company was founded |
-| follower_count     | Number of followers the company has        |
-| employee_count     | Number of employees in the company         |
-| is_verified        | Indicates if the company is verified       |
-| parent_company     | Parent company of the LinkedIn company     |
-| last_funding_round | Information about the last funding round   |
-| specialities       | Specialties of the LinkedIn company        |
+### companies
 
-The **profiles** table contains information about LinkedIn user profiles, with the following columns:
+| Column Name        | Type    | Nullable | Description                                |
+| ------------------ | ------- | -------- | ------------------------------------------ |
+| id                 | text    | false    | Unique identifier for the LinkedIn company |
+| name               | text    | true     | Name of the LinkedIn company               |
+| tagline            | text    | true     | Tagline of the LinkedIn company            |
+| description        | text    | true     | Description of the LinkedIn company        |
+| industries         | ARRAY   | true     | Industries associated with the company     |
+| website            | text    | true     | Website URL of the LinkedIn company        |
+| location           | text    | true     | Location of the LinkedIn company           |
+| founded_date       | date    | true     | Date when the LinkedIn company was founded |
+| follower_count     | bigint  | true     | Number of followers the company has        |
+| employee_count     | bigint  | true     | Number of employees in the company         |
+| is_verified        | boolean | true     | Indicates if the company is verified       |
+| parent_company     | text    | true     | Parent company of the LinkedIn company     |
+| last_funding_round | jsonb   | true     | Information about the last funding round   |
+| specialities       | ARRAY   | true     | Specialties of the LinkedIn company        |
 
-| Column Name           | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| id                    | Unique identifier for the LinkedIn user profile |
-| first_name            | First name of the LinkedIn user                 |
-| last_name             | Last name of the LinkedIn user                  |
-| public_id             | Public identifier for the LinkedIn user         |
-| headline              | Headline of the LinkedIn user                   |
-| follower_count        | Number of followers the user has                |
-| connection_count      | Number of connections the user has              |
-| featured_company_id   | ID of the featured company of the user          |
-| featured_education_id | ID of the featured education of the user        |
-| about                 | About section of the LinkedIn user              |
-| experiences           | Work experiences of the LinkedIn user           |
-| education             | Educational background of the LinkedIn user     |
-| courses               | Courses taken by the LinkedIn user              |
-| publications          | Publications authored by the LinkedIn user      |
-| projects              | Projects worked on by the LinkedIn user         |
-| certificates          | Certifications obtained by the LinkedIn user    |
-| volunteering          | Volunteering experiences of the LinkedIn user   |
-| patents               | Patents held by the LinkedIn user               |
-| organizations         | Organizations the LinkedIn user is part of      |
-| honors_and_awards     | Honors and awards received by the LinkedIn user |
-| skills                | Skills of the LinkedIn user                     |
-| recommendations       | Recommendations received by the LinkedIn user   |
-| interest_influencers  | Influencers the LinkedIn user is interested in  |
-| interest_companies    | Companies the LinkedIn user is interested in    |
-| interest_schools      | Schools the LinkedIn user is interested in      |
+### profiles
+
+| Column Name           | Type   | Nullable | Description                                     |
+| --------------------- | ------ | -------- | ----------------------------------------------- |
+| id                    | text   | false    | Unique identifier for the LinkedIn user profile |
+| first_name            | text   | true     | First name of the LinkedIn user                 |
+| last_name             | text   | true     | Last name of the LinkedIn user                  |
+| public_id             | text   | true     | Public identifier for the LinkedIn user         |
+| headline              | text   | true     | Headline of the LinkedIn user                   |
+| follower_count        | bigint | true     | Number of followers the user has                |
+| connection_count      | bigint | true     | Number of connections the user has              |
+| featured_company_id   | text   | true     | ID of the featured company of the user          |
+| featured_education_id | text   | true     | ID of the featured education of the user        |
+| about                 | text   | true     | About section of the LinkedIn user              |
+| experiences           | jsonb  | true     | Work experiences of the LinkedIn user           |
+| education             | jsonb  | true     | Educational background of the LinkedIn user     |
+| courses               | jsonb  | true     | Courses taken by the LinkedIn user              |
+| publications          | jsonb  | true     | Publications authored by the LinkedIn user      |
+| projects              | jsonb  | true     | Projects worked on by the LinkedIn user         |
+| certificates          | jsonb  | true     | Certifications obtained by the LinkedIn user    |
+| volunteering          | jsonb  | true     | Volunteering experiences of the LinkedIn user   |
+| patents               | jsonb  | true     | Patents held by the LinkedIn user               |
+| organizations         | jsonb  | true     | Organizations the LinkedIn user is part of      |
+| honors_and_awards     | jsonb  | true     | Honors and awards received by the LinkedIn user |
+| skills                | jsonb  | true     | Skills of the LinkedIn user                     |
+| recommendations       | jsonb  | true     | Recommendations received by the LinkedIn user   |
+| interest_influencers  | jsonb  | true     | Influencers the LinkedIn user is interested in  |
+| interest_companies    | jsonb  | true     | Companies the LinkedIn user is interested in    |
+| interest_schools      | jsonb  | true     | Schools the LinkedIn user is interested in      |
 
 ### Utilities for the LinkedIn dataset
 

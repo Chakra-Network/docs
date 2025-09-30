@@ -6,55 +6,57 @@ icon: 'chart-line'
 
 This dataset utilizes Slice's proprietary methodology for segmenting users into quality groups. Slice builds a score for each wallet based on life-time history of value, historic onchain volume, and fees paid
 
-The **dex_trader_aggregates** table contains aggregated data for decentralized exchange traders, with the following columns:
+## Table Schemas
 
-| Column Name   | Description                                |
-| ------------- | ------------------------------------------ |
-| avg_score     | Average score of the traders               |
-| blockchain    | Blockchain platform used                   |
-| id            | Unique identifier for the record           |
-| last_modified | Timestamp of the last modification         |
-| project       | Name of the project                        |
-| user_count    | Total number of users                      |
-| users_over_50 | Number of users over 50 score user quality |
-| users_over_60 | Number of users over 60 score user quality |
-| users_over_70 | Number of users over 70 score user quality |
-| users_over_80 | Number of users over 80 score user quality |
-| users_over_90 | Number of users over 90 score user quality |
-| users_over_95 | Number of users over 95 score user quality |
+### dex_trader_aggregates
 
-The **nft_trader_aggregates** table provides aggregated data for NFT traders, with the following columns:
+| Column Name   | Type                    | Nullable | Description                                |
+| ------------- | ----------------------- | -------- | ------------------------------------------ |
+| avg_score     | float                   | true     | Average score of the traders               |
+| blockchain    | text                    | false    | Blockchain platform used                   |
+| id            | text                    | false    | Unique identifier for the record           |
+| last_modified | timestamp with timezone | true     | Timestamp of the last modification         |
+| project       | text                    | false    | Name of the project                        |
+| user_count    | bigint                  | true     | Total number of users                      |
+| users_over_50 | bigint                  | true     | Number of users over 50 score user quality |
+| users_over_60 | bigint                  | true     | Number of users over 60 score user quality |
+| users_over_70 | bigint                  | true     | Number of users over 70 score user quality |
+| users_over_80 | bigint                  | true     | Number of users over 80 score user quality |
+| users_over_90 | bigint                  | true     | Number of users over 90 score user quality |
+| users_over_95 | bigint                  | true     | Number of users over 95 score user quality |
 
-| Column Name   | Description                                |
-| ------------- | ------------------------------------------ |
-| avg_score     | Average score of the traders               |
-| blockchain    | Blockchain platform used                   |
-| id            | Unique identifier for the record           |
-| last_modified | Timestamp of the last modification         |
-| project       | Name of the project                        |
-| user_count    | Total number of users                      |
-| users_over_50 | Number of users over 50 score user quality |
-| users_over_60 | Number of users over 60 score user quality |
-| users_over_70 | Number of users over 70 score user quality |
-| users_over_80 | Number of users over 80 score user quality |
-| users_over_90 | Number of users over 90 score user quality |
-| users_over_95 | Number of users over 95 score user quality |
+### nft_trader_aggregates
 
-The **perps_trader_aggregates** table contains aggregated data for perpetual contract traders, with the following columns:
+| Column Name   | Type                    | Nullable | Description                                |
+| ------------- | ----------------------- | -------- | ------------------------------------------ |
+| avg_score     | float                   | true     | Average score of the traders               |
+| blockchain    | text                    | false    | Blockchain platform used                   |
+| id            | text                    | false    | Unique identifier for the record           |
+| last_modified | timestamp with timezone | true     | Timestamp of the last modification         |
+| project       | text                    | false    | Name of the project                        |
+| user_count    | bigint                  | true     | Total number of users                      |
+| users_over_50 | bigint                  | true     | Number of users over 50 score user quality |
+| users_over_60 | bigint                  | true     | Number of users over 60 score user quality |
+| users_over_70 | bigint                  | true     | Number of users over 70 score user quality |
+| users_over_80 | bigint                  | true     | Number of users over 80 score user quality |
+| users_over_90 | bigint                  | true     | Number of users over 90 score user quality |
+| users_over_95 | bigint                  | true     | Number of users over 95 score user quality |
 
-| Column Name   | Description                                |
-| ------------- | ------------------------------------------ |
-| avg_score     | Average score of the traders               |
-| blockchain    | Blockchain platform used                   |
-| id            | Unique identifier for the record           |
-| last_modified | Timestamp of the last modification         |
-| project       | Name of the project                        |
-| user_count    | Total number of users                      |
-| users_over_50 | Number of users over 50 score user quality |
-| users_over_60 | Number of users over 60 score user quality |
-| users_over_70 | Number of users over 70 score user quality |
-| users_over_80 | Number of users over 80 score user quality |
-| users_over_90 | Number of users over 90 score user quality |
-| users_over_95 | Number of users over 95 score user quality |
+### perps_trader_aggregates
+
+| Column Name   | Type                    | Nullable | Description                                |
+| ------------- | ----------------------- | -------- | ------------------------------------------ |
+| avg_score     | float                   | true     | Average score of the traders               |
+| blockchain    | text                    | false    | Blockchain platform used                   |
+| id            | text                    | false    | Unique identifier for the record           |
+| last_modified | timestamp with timezone | true     | Timestamp of the last modification         |
+| project       | text                    | false    | Name of the project                        |
+| user_count    | bigint                  | true     | Total number of users                      |
+| users_over_50 | bigint                  | true     | Number of users over 50 score user quality |
+| users_over_60 | bigint                  | true     | Number of users over 60 score user quality |
+| users_over_70 | bigint                  | true     | Number of users over 70 score user quality |
+| users_over_80 | bigint                  | true     | Number of users over 80 score user quality |
+| users_over_90 | bigint                  | true     | Number of users over 90 score user quality |
+| users_over_95 | bigint                  | true     | Number of users over 95 score user quality |
 
 This dataset is ideal for analyzing _quality_ users. DAU (daily active users) is an incomplete metric that is easily botted - this dataset provides more nuance and can allow researchers to understand the quality of the composing users.
